@@ -419,6 +419,72 @@ section{padding:80px 0}
   .fr2{grid-template-columns:1fr}
   .hero-stats{grid-template-columns:repeat(2,1fr)}
 }
+
+/* ===== EXPANDED HOME SECTIONS ===== */
+.sec-center{max-width:680px;margin:0 auto 46px;text-align:center}
+.sec-center .sec-lead{margin-left:auto;margin-right:auto;margin-bottom:0}
+
+/* Pain points */
+.pain{background:var(--light)}
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:22px}
+.pain-card{background:var(--wht);border:1.5px solid var(--bdr);border-left:3px solid #d9534f;border-radius:var(--rl);padding:26px 24px;transition:box-shadow .2s,transform .2s}
+.pain-card:hover{box-shadow:var(--shm);transform:translateY(-3px)}
+.pain-ico{font-size:23px;margin-bottom:12px;display:block;line-height:1}
+.pain-card h4{font-family:var(--fh);font-size:17px;font-weight:700;color:var(--blk);margin-bottom:7px}
+.pain-card p{font-family:var(--fb);font-size:14px;color:var(--body);line-height:1.6}
+.pain-bridge{text-align:center;margin-top:40px}
+.pain-bridge p{font-family:var(--fh);font-size:clamp(19px,2.5vw,25px);font-weight:600;font-style:italic;color:var(--blk);max-width:680px;margin:0 auto 22px;line-height:1.4}
+.pain-bridge .acc{color:var(--g);font-style:normal}
+
+/* Process / How it works */
+.process{background:var(--light)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:26px;margin-top:48px}
+.step{position:relative;text-align:center;padding:0 10px}
+.step-num{width:62px;height:62px;border-radius:50%;background:var(--wht);border:2px solid var(--g);color:var(--g);font-family:var(--fh);font-size:24px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;position:relative;z-index:2;box-shadow:0 4px 14px rgba(58,158,73,.18)}
+.step h4{font-family:var(--fh);font-size:18px;font-weight:700;color:var(--blk);margin-bottom:8px}
+.step p{font-family:var(--fb);font-size:14px;color:var(--body);line-height:1.6}
+.steps .step:not(:last-child)::after{content:'';position:absolute;top:31px;left:62%;width:76%;height:2px;background:repeating-linear-gradient(90deg,var(--gm) 0 7px,transparent 7px 14px);z-index:1}
+@media(max-width:760px){.steps .step:not(:last-child)::after{display:none}}
+
+/* Full-bleed image band */
+.imgband{position:relative;padding:96px 0;background:#0c2912;overflow:hidden}
+.imgband-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.30;z-index:0}
+.imgband::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,rgba(12,41,18,.95) 0%,rgba(44,122,56,.80) 100%);z-index:1}
+.imgband .container{position:relative;z-index:2;text-align:center}
+.imgband .eyebrow{color:#9be3a8}
+.imgband h2{font-family:var(--fh);font-size:clamp(26px,3.4vw,40px);font-weight:700;color:#fff;letter-spacing:-.01em;margin-bottom:14px;max-width:780px;margin-left:auto;margin-right:auto;line-height:1.18}
+.imgband .lead{font-family:var(--fb);font-size:17px;color:rgba(255,255,255,.88);max-width:580px;margin:0 auto 38px;line-height:1.7}
+.imgband-stats{display:flex;justify-content:center;gap:54px;flex-wrap:wrap}
+.ibs .n{font-family:var(--fh);font-size:clamp(32px,4vw,44px);font-weight:800;color:#fff;line-height:1;display:block}
+.ibs .l{font-family:var(--fb);font-size:12.5px;color:rgba(255,255,255,.72);letter-spacing:.06em;text-transform:uppercase;margin-top:8px;display:block}
+
+/* Local Kitchener */
+.local{background:var(--light);overflow:hidden}
+.local-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.local-list{display:flex;flex-direction:column;gap:16px;margin-top:24px}
+.local-li{display:flex;gap:13px;align-items:flex-start}
+.local-li .ic{width:26px;height:26px;border-radius:7px;background:var(--gl);color:var(--gd);font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.local-li div{font-family:var(--fb);font-size:14.5px;color:var(--body);line-height:1.55}
+.local-li b{color:var(--blk);font-weight:700}
+.local-visual{position:relative;border-radius:var(--rl);overflow:hidden;min-height:400px;background:linear-gradient(165deg,#1f5e2c 0%,#2C7A38 55%,#3A9E49 100%);box-shadow:var(--shl)}
+.local-photo{position:absolute;top:22px;right:22px;width:54%;max-width:280px;border-radius:10px;box-shadow:0 12px 36px rgba(0,0,0,.32);border:4px solid rgba(255,255,255,.9);z-index:3}
+.local-tag{position:absolute;top:20px;left:20px;z-index:4;background:rgba(255,255,255,.94);border-radius:30px;padding:8px 15px;font-family:var(--fb);font-size:12px;font-weight:700;color:var(--gd);letter-spacing:.03em;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.local-skyline{position:absolute;left:0;right:0;bottom:0;width:100%;display:block;z-index:2}
+.local-grad{position:absolute;inset:0;background:radial-gradient(circle at 75% 25%,rgba(255,255,255,.14),transparent 55%);z-index:1}
+@media(max-width:800px){.local-grid{grid-template-columns:1fr;gap:32px}.local-visual{min-height:320px}}
+
+/* Industries */
+.industries{background:var(--wht)}
+.ind-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:16px;margin-top:42px}
+.ind-card{background:var(--wht);border:1.5px solid var(--bdr);border-radius:var(--rl);padding:24px 18px;text-align:center;transition:border-color .2s,box-shadow .2s,transform .2s}
+.ind-card:hover{border-color:var(--g);box-shadow:var(--shm);transform:translateY(-3px)}
+.ind-ico{font-size:27px;margin-bottom:11px;display:block;line-height:1}
+.ind-card h4{font-family:var(--fb);font-size:14.5px;font-weight:700;color:var(--blk);margin-bottom:4px}
+.ind-card p{font-family:var(--fb);font-size:12.5px;color:var(--muted);line-height:1.5}
+
+/* Home FAQ */
+.faq-sec{background:var(--wht)}
+.faq-narrow{max-width:780px;margin:0 auto}
 @media(max-width:500px){.fg-grid{grid-template-columns:1fr}.hero{padding:56px 0 64px}}
 </style>
 </head>
@@ -485,6 +551,28 @@ section{padding:80px 0}
   </div>
 </section>
 
+<section class="pain">
+  <div class="container">
+    <div class="sec-center">
+      <p class="eyebrow">Sound Familiar?</p>
+      <h2 class="sh2">The Tax and Accounting Headaches<br>Kitchener Owners Know Too Well</h2>
+      <p class="sec-lead">If any of these keep you up at night, you are not alone. They are exactly the problems we solve every day for clients across Kitchener and Waterloo.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card"><span class="pain-ico">&#128557;</span><h4>Dreading Tax Season</h4><p>Shoeboxes of receipts, missed slips, and a looming CRA deadline you keep pushing off until the last stressful week.</p></div>
+      <div class="pain-card"><span class="pain-ico">&#128176;</span><h4>Overpaying the CRA</h4><p>No idea which deductions or credits you qualify for, so you quietly hand the government more than you legally owe.</p></div>
+      <div class="pain-card"><span class="pain-ico">&#9203;</span><h4>Bookkeeping You Never Catch Up On</h4><p>Running a Kitchener business leaves no time for reconciliations, HST tracking, and payroll that always falls behind.</p></div>
+      <div class="pain-card"><span class="pain-ico">&#128231;</span><h4>A CRA Letter in the Mailbox</h4><p>A review or reassessment notice arrives and you have no one in your corner who actually understands what it means.</p></div>
+      <div class="pain-card"><span class="pain-ico">&#129335;</span><h4>An Accountant You Never Hear From</h4><p>You only get a call once a year at filing time, with no proactive advice and no answer when questions come up.</p></div>
+      <div class="pain-card"><span class="pain-ico">&#127970;</span><h4>Unsure How to Structure Your Business</h4><p>Sole proprietor or incorporate? Salary or dividends? Costly decisions made without professional guidance.</p></div>
+    </div>
+    <div class="pain-bridge">
+      <p>You should not have to choose between running your life or business and staying on top of your finances. <span class="acc">That is our job.</span></p>
+      <a href="contact.html" class="btn-p">Talk to a Kitchener Accountant</a>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="container">
     <p class="eyebrow">Our Services</p>
@@ -501,7 +589,38 @@ section{padding:80px 0}
   </div>
 </section>
 
-<section class="bg-light">
+<section class="process">
+  <div class="container">
+    <div class="sec-center">
+      <p class="eyebrow">How It Works</p>
+      <h2 class="sh2">Getting Started Is Simple</h2>
+      <p class="sec-lead">No confusing onboarding and no jargon. Just a clear, professional process designed to get your finances in order fast.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><h4>Book a Free Call</h4><p>Tell us about your situation in a no-obligation consultation. We listen first and explain your options in plain language.</p></div>
+      <div class="step"><div class="step-num">2</div><h4>Get a Clear Plan</h4><p>We review your documents and send a transparent, upfront quote with exactly what we will do and what it costs.</p></div>
+      <div class="step"><div class="step-num">3</div><h4>We Handle the Work</h4><p>From filing to bookkeeping to CRA correspondence, our team takes care of it accurately and on time, every time.</p></div>
+      <div class="step"><div class="step-num">4</div><h4>Stay Ahead Year-Round</h4><p>Ongoing advice and proactive planning so you are never scrambling at deadline and never overpaying again.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="imgband">
+  <div class="imgband-bg" style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&amp;fit=crop&amp;w=1600&amp;q=70')"></div>
+  <div class="container">
+    <p class="eyebrow">Trusted Across Kitchener-Waterloo</p>
+    <h2>A Local CPA Firm Built on Results,<br>Not Just Tax Returns</h2>
+    <p class="lead">Individuals, families, and growing businesses across the region rely on us for accurate, proactive, and genuinely personal accounting.</p>
+    <div class="imgband-stats">
+      <div class="ibs"><span class="n">6+</span><span class="l">Years in Kitchener</span></div>
+      <div class="ibs"><span class="n">500+</span><span class="l">Returns Filed</span></div>
+      <div class="ibs"><span class="n">98%</span><span class="l">Client Retention</span></div>
+      <div class="ibs"><span class="n">5.0</span><span class="l">Google Rating</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
   <div class="container">
     <div class="split">
       <div>
@@ -527,6 +646,75 @@ section{padding:80px 0}
         </div>
         <div style="margin-top:24px"><a href="about.html" class="btn-ol">Meet the Team</a></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="local">
+  <div class="container">
+    <div class="local-grid">
+      <div>
+        <p class="eyebrow">Proudly Local</p>
+        <h2 class="sh2">An Accountant Who Knows<br><span class="acc">Kitchener-Waterloo</span></h2>
+        <p class="sec-lead">We are not a faceless national chain. We are based right here at 142 Dubrick Crescent, and we understand the businesses, trades, and families that make this region tick.</p>
+        <div class="local-list">
+          <div class="local-li"><span class="ic">&#9679;</span><div><b>Local presence, real relationships.</b> Meet us in person in Kitchener or work with us virtually anywhere in Ontario.</div></div>
+          <div class="local-li"><span class="ic">&#9679;</span><div><b>We know the local economy.</b> From Waterloo tech startups to Kitchener trades and real estate, we speak your industry.</div></div>
+          <div class="local-li"><span class="ic">&#9679;</span><div><b>Year-round access.</b> Open Monday to Saturday, with a team that answers when you call, not just at tax time.</div></div>
+          <div class="local-li"><span class="ic">&#9679;</span><div><b>CPA Canada member firm.</b> Professional standards and accountability behind every engagement.</div></div>
+        </div>
+        <div style="margin-top:30px"><a href="contact.html" class="btn-p">Visit Our Kitchener Office</a></div>
+      </div>
+      <div class="local-visual">
+        <div class="local-grad"></div>
+        <span class="local-tag">&#128205; Kitchener, Ontario</span>
+        <img class="local-photo" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&amp;fit=crop&amp;w=640&amp;q=70" alt="Meeting with a professional accountant in Kitchener" loading="lazy" onerror="this.style.display='none'">
+        <svg class="local-skyline" viewBox="0 0 600 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g fill="#1c5728" opacity="0.55">
+            <rect x="20" y="95" width="46" height="55"/><rect x="74" y="72" width="38" height="78"/>
+            <rect x="120" y="105" width="40" height="45"/><rect x="430" y="88" width="42" height="62"/>
+            <rect x="478" y="108" width="36" height="42"/><rect x="520" y="78" width="44" height="72"/>
+          </g>
+          <g fill="#16451f">
+            <rect x="168" y="60" width="54" height="90"/>
+            <rect x="230" y="100" width="40" height="50"/>
+            <rect x="362" y="84" width="50" height="66"/>
+            <rect x="278" y="38" width="76" height="112" rx="2"/>
+            <rect x="306" y="12" width="20" height="30"/>
+            <rect x="312" y="2" width="8" height="12"/>
+          </g>
+          <g fill="#0f3517" opacity="0.9">
+            <rect x="312" y="20" width="10" height="10" rx="1"/>
+          </g>
+          <g fill="#3A9E49" opacity="0.85">
+            <rect x="180" y="72" width="8" height="10"/><rect x="194" y="72" width="8" height="10"/><rect x="208" y="72" width="8" height="10"/>
+            <rect x="180" y="92" width="8" height="10"/><rect x="194" y="92" width="8" height="10"/><rect x="208" y="92" width="8" height="10"/>
+            <rect x="180" y="112" width="8" height="10"/><rect x="194" y="112" width="8" height="10"/><rect x="208" y="112" width="8" height="10"/>
+            <rect x="372" y="96" width="8" height="10"/><rect x="386" y="96" width="8" height="10"/>
+            <rect x="372" y="116" width="8" height="10"/><rect x="386" y="116" width="8" height="10"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="industries">
+  <div class="container">
+    <div class="sec-center">
+      <p class="eyebrow">Who We Help</p>
+      <h2 class="sh2">Trusted by Kitchener Individuals<br>and Industries</h2>
+      <p class="sec-lead">Whatever your situation, our chartered professional accountants tailor the right tax and accounting approach for you.</p>
+    </div>
+    <div class="ind-grid">
+      <div class="ind-card"><span class="ind-ico">&#128106;</span><h4>Individuals &amp; Families</h4><p>Personal T1 returns and planning</p></div>
+      <div class="ind-card"><span class="ind-ico">&#127959;</span><h4>Trades &amp; Contractors</h4><p>HST, expenses, and bookkeeping</p></div>
+      <div class="ind-card"><span class="ind-ico">&#127968;</span><h4>Real Estate &amp; Realtors</h4><p>Commission income and incorporation</p></div>
+      <div class="ind-card"><span class="ind-ico">&#128187;</span><h4>Tech &amp; Startups</h4><p>Corporate tax and SR&amp;ED guidance</p></div>
+      <div class="ind-card"><span class="ind-ico">&#127869;</span><h4>Restaurants &amp; Retail</h4><p>Payroll, HST, and cash flow</p></div>
+      <div class="ind-card"><span class="ind-ico">&#129658;</span><h4>Medical &amp; Professionals</h4><p>Professional corporations and tax</p></div>
+      <div class="ind-card"><span class="ind-ico">&#128188;</span><h4>Self-Employed</h4><p>Sole proprietor returns and HST</p></div>
+      <div class="ind-card"><span class="ind-ico">&#127891;</span><h4>Students &amp; Newcomers</h4><p>First returns and credits</p></div>
     </div>
   </div>
 </section>
@@ -574,6 +762,26 @@ section{padding:80px 0}
       <div class="gbadge"><span class="gg">G</span><span>5.0 / 5 on Google</span><span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span></span></div>
     </div>
   </section>
+
+<section class="faq-sec">
+  <div class="container">
+    <div class="sec-center">
+      <p class="eyebrow">Common Questions</p>
+      <h2 class="sh2">Questions Kitchener Clients<br>Ask Us Most</h2>
+    </div>
+    <div class="faq-narrow">
+      <div class="faq-wrap">
+        <div class="faq-it"><div class="faq-q">How much does an accountant in Kitchener cost?</div><div class="faq-a">It depends on the work. A simple personal T1 return costs far less than a corporate T2 with bookkeeping. We always provide a transparent, upfront quote after a free consultation, so there are never surprise invoices.</div></div>
+        <div class="faq-it"><div class="faq-q">Do I have to come into your Kitchener office?</div><div class="faq-a">No. Many clients work with us entirely online by sending documents securely, while others prefer to meet in person at our office on Dubrick Crescent. We make both easy and serve clients throughout Kitchener, Waterloo, and across Ontario.</div></div>
+        <div class="faq-it"><div class="faq-q">Can you help if the CRA has sent me a letter or review?</div><div class="faq-a">Yes. We regularly help Kitchener individuals and businesses respond to CRA reviews, reassessments, and audits. We deal with the CRA on your behalf and make sure your position is properly supported.</div></div>
+        <div class="faq-it"><div class="faq-q">I am behind on several years of taxes. Can you still help?</div><div class="faq-a">Absolutely. We help clients catch up on multiple years of unfiled or late returns and get back in good standing with the CRA, often reducing penalties and interest in the process.</div></div>
+        <div class="faq-it"><div class="faq-q">Should I incorporate my small business?</div><div class="faq-a">It depends on your income, goals, and liability. Incorporation can offer real tax advantages, but it is not right for everyone. We will walk you through salary versus dividends and the full picture before you decide.</div></div>
+        <div class="faq-it"><div class="faq-q">Do you handle bookkeeping and payroll too, not just taxes?</div><div class="faq-a">Yes. We offer full-service bookkeeping, payroll, HST filing, and year-round advisory, so your taxes, books, and compliance all stay aligned under one roof.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="sec-cta">
     <div class="container ta-c">
       <h2 class="cta-h">Ready to Work With a Kitchener Accountant?</h2>
