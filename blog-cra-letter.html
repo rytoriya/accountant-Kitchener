@@ -29,16 +29,16 @@
   --shl:0 8px 48px rgba(0,0,0,.14);
 }
 html{scroll-behavior:smooth}
-body{font-family:var(--fb);color:var(--ink);background:var(--wht);line-height:1.7;-webkit-font-smoothing:antialiased}
+body{font-family:var(--fb);color:var(--ink);background:var(--wht);line-height:1.7;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
 a{color:var(--g);text-decoration:none}a:hover{text-decoration:underline}
 img{display:block;max-width:100%}
-.container{max-width:1160px;margin:0 auto;padding:0 28px}
+.container{max-width:1240px;margin:0 auto;padding:0 32px}
 .ta-c{text-align:center}
 
 /* TOPBAR */
-.topbar{color:#e8fcea;
-  background:var(--gd);border-bottom:1px solid rgba(0,0,0,.1);
-  padding:7px 0;font-family:var(--fb);font-size:12.5px;font-weight:500;color:#e8fcea;
+.topbar{
+  background:var(--gd);border-bottom:1px solid rgba(0,0,0,.12);
+  padding:8px 0;font-family:var(--fb);font-size:12.5px;font-weight:500;color:#eafaec;
 }
 .topbar .container{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .topbar a{color:#e0ffe4;text-decoration:none;transition:color .15s}
@@ -56,16 +56,17 @@ img{display:block;max-width:100%}
   height:72px;gap:16px;
 }
 .logo-wrap{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
-.logo-wrap img{height:48px;width:auto;display:block;object-fit:contain}
+.logo-wrap img{height:42px;width:auto;display:block;object-fit:contain}
+.nav-wrap{display:flex;align-items:center;justify-content:flex-end;flex:1}
 
 /* NAV */
 .main-nav{display:flex;align-items:center;list-style:none;gap:0}
 .main-nav>li{position:relative}
 .main-nav>li>a,
 .main-nav>li>.dt{
-  display:block;padding:0 12px;height:72px;line-height:72px;
-  font-family:var(--fb);font-size:12.5px;font-weight:700;
-  letter-spacing:.06em;text-transform:uppercase;
+  display:block;padding:0 9px;height:72px;line-height:72px;
+  font-family:var(--fb);font-size:11.5px;font-weight:700;
+  letter-spacing:.03em;text-transform:uppercase;
   color:#333;text-decoration:none;cursor:pointer;white-space:nowrap;
   border-bottom:3px solid transparent;margin-bottom:-3px;
   transition:color .2s,border-color .2s;
@@ -92,10 +93,10 @@ img{display:block;max-width:100%}
 .nav-cta-btn{
   display:inline-block;
   background:var(--g);color:var(--wht)!important;
-  padding:0 20px;height:40px;line-height:40px;
-  border-radius:var(--r);margin-left:10px;
-  font-family:var(--fb);font-size:12px;font-weight:700;
-  letter-spacing:.07em;text-transform:uppercase;
+  padding:0 17px;height:38px;line-height:38px;
+  border-radius:var(--r);margin-left:8px;
+  font-family:var(--fb);font-size:11px;font-weight:700;
+  letter-spacing:.05em;text-transform:uppercase;
   text-decoration:none!important;
   transition:background .2s,box-shadow .2s;
   white-space:nowrap;flex-shrink:0;
@@ -105,7 +106,7 @@ img{display:block;max-width:100%}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
 .hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s}
 
-@media(max-width:960px){
+@media(max-width:1140px){
   .hamburger{display:flex}
   .nav-wrap{
     display:none;position:absolute;top:100%;left:0;right:0;
@@ -319,20 +320,21 @@ section{padding:80px 0}
 .btn-wg:hover{border-color:var(--wht);text-decoration:none}
 
 /* FOOTER */
-.site-footer{background:#0d0d0d;color:#777;padding:60px 0 0}
-.fg-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:40px;margin-bottom:44px}
-.fg-logo{margin-bottom:14px}
-.fg-logo img{height:44px;width:auto;filter:brightness(0) invert(1);opacity:.8}
-.fg-desc{font-family:var(--fb);font-size:13.5px;color:#666;line-height:1.7;max-width:265px}
-.fc h4{font-family:var(--fb);font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--wht);margin-bottom:14px}
-.fc ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-.fc ul li a{font-family:var(--fb);font-size:13.5px;color:#666;text-decoration:none;transition:color .2s}
+.site-footer{background:#111312;color:#9aa09a;padding:64px 0 0;border-top:3px solid var(--g)}
+.fg-grid{display:grid;grid-template-columns:1.9fr 1fr 1fr 1.15fr;gap:48px;margin-bottom:48px}
+.fg-brand{display:inline-flex;align-items:center;gap:13px;text-decoration:none;margin-bottom:18px}
+.fg-mono{width:50px;height:50px;border-radius:9px;background:var(--g);color:#fff;font-family:var(--fb);font-weight:800;font-size:22px;letter-spacing:.01em;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 5px 16px rgba(58,158,73,.4)}
+.fg-word{font-family:var(--fh);font-weight:700;font-size:20px;line-height:1.05;color:#fff;letter-spacing:.005em}
+.fg-desc{font-family:var(--fb);font-size:14px;color:#949a94;line-height:1.74;max-width:285px}
+.fc h4{font-family:var(--fb);font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#fff;margin-bottom:17px}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.fc ul li a{font-family:var(--fb);font-size:14px;color:#b6bbb6;text-decoration:none;transition:color .18s}
 .fc ul li a:hover{color:var(--g)}
-.fc-c{display:flex;flex-direction:column;gap:8px}
-.fc-c a,.fc-c span{font-family:var(--fb);font-size:13.5px;color:#666;text-decoration:none}
+.fc-c{display:flex;flex-direction:column;gap:12px}
+.fc-c a,.fc-c span{font-family:var(--fb);font-size:14px;color:#b6bbb6;text-decoration:none;line-height:1.6}
 .fc-c a:hover{color:var(--g)}
-.f-bottom{border-top:1px solid #1a1a1a;padding:20px 0;display:flex;justify-content:space-between;align-items:center;font-family:var(--fb);font-size:12.5px;color:#444;flex-wrap:wrap;gap:8px}
-.f-bottom a{color:#444;text-decoration:none}.f-bottom a:hover{color:var(--g)}
+.f-bottom{border-top:1px solid rgba(255,255,255,.09);padding:22px 0;display:flex;justify-content:space-between;align-items:center;font-family:var(--fb);font-size:13px;color:#7e847e;flex-wrap:wrap;gap:8px}
+.f-bottom a{color:#9aa09a;text-decoration:none;transition:color .18s}.f-bottom a:hover{color:var(--g)}
 
 /* CONTENT */
 .content-sec{padding:72px 0}
@@ -490,7 +492,10 @@ section{padding:80px 0}
 <footer class="site-footer"><div class="container">
   <div class="fg-grid">
     <div>
-      <div class="fg-logo"><img src="logo.png" alt="Accountant Kitchener"></div>
+      <a href="index.html" class="fg-brand" aria-label="Accountant Kitchener home">
+        <span class="fg-mono">IH</span>
+        <span class="fg-word">Accountant<br>Kitchener</span>
+      </a>
       <p class="fg-desc">CPA-led tax, accounting, and bookkeeping services for individuals and businesses in Kitchener, Ontario. A service by IH CPA.</p>
     </div>
     <div class="fc"><h4>Quick Links</h4><ul>
@@ -521,7 +526,7 @@ section{padding:80px 0}
     </div></div>
   </div>
   <div class="f-bottom">
-    <span>2025 Accountant Kitchener. A service by <a href="https://ihcpa.ca" target="_blank" rel="noopener">IH CPA</a>. All rights reserved.</span>
+    <span>&copy; 2026 Accountant Kitchener. A service by <a href="https://ihcpa.ca" target="_blank" rel="noopener">IH CPA</a>. All rights reserved.</span>
     <span><a href="#">Privacy Policy</a>&nbsp;|&nbsp;<a href="#">Terms</a></span>
   </div>
 </div></footer>
