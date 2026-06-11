@@ -104,7 +104,7 @@ img{display:block;max-width:100%}
 .nav-cta-btn:hover{background:var(--gd);box-shadow:0 4px 16px rgba(58,158,73,.3)}
 
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
-.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s}
 
 @media(max-width:1140px){
   .hamburger{display:flex}
@@ -186,7 +186,7 @@ img{display:block;max-width:100%}
   padding:11px 22px;border-radius:var(--r);
   font-family:var(--fb);font-size:12.5px;font-weight:700;
   letter-spacing:.06em;text-transform:uppercase;
-  text-decoration:none;border:2px solid var(--g);transition:all .2s;
+  text-decoration:none;border:2px solid var(--g);transition:background .2s,color .2s;
 }
 .btn-ol:hover{background:var(--g);color:var(--wht);text-decoration:none}
 .hero-trust{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
@@ -354,9 +354,9 @@ section{padding:80px 0}
 .faq-it{border-bottom:1.5px solid var(--bdr);padding:18px 0}
 .faq-q{font-family:var(--fh);font-size:17px;font-weight:700;color:var(--blk);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px}
 .faq-q::after{content:'+';font-family:var(--fb);font-size:22px;font-weight:300;color:var(--g);flex-shrink:0;transition:transform .2s}
-.faq-a{font-family:var(--fb);font-size:15px;color:var(--body);line-height:1.72;padding-top:10px;display:none}
+.faq-a{font-family:var(--fb);font-size:15px;color:var(--body);line-height:1.72}
 .faq-it.open .faq-q::after{content:'\2212'}
-.faq-it.open .faq-a{display:block}
+
 .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:36px}
 .tc{background:var(--wht);border:1.5px solid var(--bdr);border-radius:var(--rl);padding:28px 22px;text-align:center;transition:box-shadow .2s,transform .2s}
 .tc:hover{box-shadow:var(--shl);transform:translateY(-3px)}
@@ -455,6 +455,22 @@ h1,h2,h3,.sh2,.cta-h,.page-hero h1,.art-body h2,.art-body h3,.faq-q{text-wrap:ba
 @media(prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none}}
 :focus-visible{outline:2px solid var(--g);outline-offset:3px;border-radius:3px}
 
+
+/* ── MOTION PASS (emil-design-eng) ── */
+:root{--eo:cubic-bezier(.23,1,.32,1)}
+.btn-gp,.btn-dk,.btn-p,.btn-gp-sm,.btn-w,.fsub,.nav-cta-btn{transition:background .2s,transform .16s var(--eo),box-shadow .2s}
+.btn-ol,.btn-gh,.btn-wg{transition:background .2s,color .2s,border-color .2s,transform .16s var(--eo)}
+:where(.btn-gp,.btn-dk,.btn-ol,.btn-p,.btn-gp-sm,.btn-gh,.btn-w,.btn-wg,.nav-cta-btn,.fsub):active{transform:scale(.97)}
+@media(hover:none){
+  .svc-card:hover,.pain-card:hover,.ind-card:hover,.tc:hover,.bc:hover,.rel-card:hover,.rc:hover{transform:none}
+  .svc-card:hover .svc-photo{transform:none}
+}
+.faq-a{display:block;max-height:0;overflow:hidden;padding-top:0;transition:max-height .35s var(--eo),padding-top .35s var(--eo)}
+.faq-it.open .faq-a{max-height:340px;padding-top:10px}
+.faq-q::after{transition:transform .25s var(--eo)}
+.faq-it.open .faq-q::after{transform:rotate(180deg)}
+@media(prefers-reduced-motion:reduce){.faq-a{transition:none}.faq-q::after{transition:none}}
+
 </style>
 </head>
 <body>
@@ -508,7 +524,6 @@ h1,h2,h3,.sh2,.cta-h,.page-hero h1,.art-body h2,.art-body h3,.faq-q{text-wrap:ba
   <div class="container">
     <div class="photo-split">
       <div>
-        <p class="eyebrow">What We Advise On</p>
         <h2 class="sh2">Strategic Tax Advice<br>That Moves the Needle</h2>
         <div class="feat-list">
           <div class="feat-item"><span class="feat-dot"></span><p><strong>Tax structure optimization.</strong> Salary, dividends, holdcos, family trusts: we model the right structure for your income and goals.</p></div>
@@ -527,7 +542,7 @@ h1,h2,h3,.sh2,.cta-h,.page-hero h1,.art-body h2,.art-body h3,.faq-q{text-wrap:ba
 </section>
 
 <section class="content-sec" data-reveal><div class="container"><div class="split">
-  <div class="prose"><p class="eyebrow">Tax Advisory Services</p><h2 class="sh2">Tax Strategy for<br><span class="acc">Kitchener</span> Clients</h2>
+  <div class="prose"><h2 class="sh2">Tax Strategy for<br><span class="acc">Kitchener</span> Clients</h2>
 <p>Most people file taxes reactively, once a year, after the year is done. Our tax consulting services in Kitchener help you plan proactively, making decisions throughout the year that legally minimize your tax burden and support your long-term financial goals.</p>
 <h3>Personal Tax Consulting</h3><p>We advise Kitchener residents on RRSP vs TFSA strategy, income splitting, family tax planning, estate planning, rental property structuring, and timing of capital gains and losses. See our <a href="blog-rrsp-vs-tfsa.html">RRSP vs TFSA guide</a> and <a href="blog-rental-income-tax.html">rental income tax guide</a>.</p>
 <h3>Business Tax Consulting</h3><p>For <a href="small-business-tax-accountant-kitchener.html">small business owners</a> and corporations in Kitchener, we provide advice on incorporation timing, salary vs dividend optimization, holding company structures, tax deferral strategies, and succession planning. Read our <a href="blog-salary-vs-dividend.html">salary vs dividend guide</a>.</p>
@@ -572,7 +587,6 @@ h1,h2,h3,.sh2,.cta-h,.page-hero h1,.art-body h2,.art-body h3,.faq-q{text-wrap:ba
 
 <section class="sec-reviews bg-light" data-reveal>
     <div class="container">
-      <p class="eyebrow">Client Reviews</p>
       <h2 class="sh2">What Our Clients Say</h2>
       <div class="reviews-grid"><div class="rc">
           <div class="rc-stars"><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span></div>
@@ -691,6 +705,27 @@ h1,h2,h3,.sh2,.cta-h,.page-hero h1,.art-body h2,.art-body h3,.faq-q{text-wrap:ba
 </script>
 <script>
 (function(){var els=document.querySelectorAll('[data-reveal]');if(!els.length)return;var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});els.forEach(function(el){io.observe(el)})})();
+</script>
+<script>
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var els=document.querySelectorAll('.sn, .ibs .n, .istat .n');if(!els.length)return;
+  function animate(el){
+    var raw=el.textContent.trim();
+    var m=raw.match(/^([0-9]+(?:\.[0-9]+)?)(.*)$/);if(!m)return;
+    var target=parseFloat(m[1]),suffix=m[2],dec=(m[1].split('.')[1]||'').length;
+    var t0=null,dur=900;
+    function step(ts){
+      if(!t0)t0=ts;
+      var p=Math.min((ts-t0)/dur,1);p=1-Math.pow(1-p,4);
+      el.textContent=(target*p).toFixed(dec)+suffix;
+      if(p<1)requestAnimationFrame(step);else el.textContent=raw;
+    }
+    requestAnimationFrame(step);
+  }
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){animate(e.target);io.unobserve(e.target)}})},{threshold:.6});
+  els.forEach(function(el){io.observe(el)});
+})();
 </script>
 </body>
 </html>

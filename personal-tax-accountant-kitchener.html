@@ -104,7 +104,7 @@ img{display:block;max-width:100%}
 .nav-cta-btn:hover{background:var(--gd);box-shadow:0 4px 16px rgba(58,158,73,.3)}
 
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
-.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s}
 
 @media(max-width:1140px){
   .hamburger{display:flex}
@@ -186,7 +186,7 @@ img{display:block;max-width:100%}
   padding:11px 22px;border-radius:var(--r);
   font-family:var(--fb);font-size:12.5px;font-weight:700;
   letter-spacing:.06em;text-transform:uppercase;
-  text-decoration:none;border:2px solid var(--g);transition:all .2s;
+  text-decoration:none;border:2px solid var(--g);transition:background .2s,color .2s;
 }
 .btn-ol:hover{background:var(--g);color:var(--wht);text-decoration:none}
 .hero-trust{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
@@ -354,9 +354,9 @@ section{padding:80px 0}
 .faq-it{border-bottom:1.5px solid var(--bdr);padding:18px 0}
 .faq-q{font-family:var(--fh);font-size:17px;font-weight:700;color:var(--blk);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px}
 .faq-q::after{content:'+';font-family:var(--fb);font-size:22px;font-weight:300;color:var(--g);flex-shrink:0;transition:transform .2s}
-.faq-a{font-family:var(--fb);font-size:15px;color:var(--body);line-height:1.72;padding-top:10px;display:none}
+.faq-a{font-family:var(--fb);font-size:15px;color:var(--body);line-height:1.72}
 .faq-it.open .faq-q::after{content:'\2212'}
-.faq-it.open .faq-a{display:block}
+
 .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:36px}
 .tc{background:var(--wht);border:1.5px solid var(--bdr);border-radius:var(--rl);padding:28px 22px;text-align:center;transition:box-shadow .2s,transform .2s}
 .tc:hover{box-shadow:var(--shl);transform:translateY(-3px)}
@@ -455,6 +455,22 @@ h1,h2,h3,.sh2,.cta-h,.page-hero h1,.art-body h2,.art-body h3,.faq-q{text-wrap:ba
 @media(prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none}}
 :focus-visible{outline:2px solid var(--g);outline-offset:3px;border-radius:3px}
 
+
+/* ── MOTION PASS (emil-design-eng) ── */
+:root{--eo:cubic-bezier(.23,1,.32,1)}
+.btn-gp,.btn-dk,.btn-p,.btn-gp-sm,.btn-w,.fsub,.nav-cta-btn{transition:background .2s,transform .16s var(--eo),box-shadow .2s}
+.btn-ol,.btn-gh,.btn-wg{transition:background .2s,color .2s,border-color .2s,transform .16s var(--eo)}
+:where(.btn-gp,.btn-dk,.btn-ol,.btn-p,.btn-gp-sm,.btn-gh,.btn-w,.btn-wg,.nav-cta-btn,.fsub):active{transform:scale(.97)}
+@media(hover:none){
+  .svc-card:hover,.pain-card:hover,.ind-card:hover,.tc:hover,.bc:hover,.rel-card:hover,.rc:hover{transform:none}
+  .svc-card:hover .svc-photo{transform:none}
+}
+.faq-a{display:block;max-height:0;overflow:hidden;padding-top:0;transition:max-height .35s var(--eo),padding-top .35s var(--eo)}
+.faq-it.open .faq-a{max-height:340px;padding-top:10px}
+.faq-q::after{transition:transform .25s var(--eo)}
+.faq-it.open .faq-q::after{transform:rotate(180deg)}
+@media(prefers-reduced-motion:reduce){.faq-a{transition:none}.faq-q::after{transition:none}}
+
 </style>
 </head>
 <body>
@@ -508,7 +524,6 @@ h1,h2,h3,.sh2,.cta-h,.page-hero h1,.art-body h2,.art-body h3,.faq-q{text-wrap:ba
   <div class="container">
     <div class="photo-split">
       <div>
-        <p class="eyebrow">What We Do For You</p>
         <h2 class="sh2">Personal Tax That Puts<br>More Back In Your Pocket</h2>
         <div class="feat-list">
           <div class="feat-item"><span class="feat-dot"></span><p><strong>Full review of your situation.</strong> We ask questions, find credits you may not know exist, and build the most advantageous return for your circumstances.</p></div>
@@ -527,7 +542,7 @@ h1,h2,h3,.sh2,.cta-h,.page-hero h1,.art-body h2,.art-body h3,.faq-q{text-wrap:ba
 </section>
 
 <section class="content-sec" data-reveal><div class="container"><div class="split">
-  <div class="prose"><p class="eyebrow">Personal Tax Services</p><h2 class="sh2">Personal Tax Returns<br>in <span class="acc">Kitchener</span></h2>
+  <div class="prose"><h2 class="sh2">Personal Tax Returns<br>in <span class="acc">Kitchener</span></h2>
 <p>Filing your personal income tax return should not be stressful. Our <a href="cpa-kitchener.html">Kitchener professional team</a> takes care of everything, from gathering the right slips to identifying every deduction you are entitled to.</p>
 <h3>What We Prepare</h3>
 <ul><li>T1 personal income tax returns for all income types</li><li>Employment income from one or multiple employers</li><li>Self-employment and freelance income</li><li>Rental property income and expenses</li><li>Investment income including dividends and capital gains</li><li>RRSP and TFSA planning and contribution reporting</li><li>Pension and retirement income (CPP, OAS, RRIF)</li><li>Foreign income and international tax obligations</li></ul>
@@ -550,7 +565,7 @@ h1,h2,h3,.sh2,.cta-h,.page-hero h1,.art-body h2,.art-body h3,.faq-q{text-wrap:ba
   </form>
 </div></div>
 </div></div></section>
-<section data-reveal><div class="container" style="max-width:860px"><p class="eyebrow">FAQs</p><h2 class="sh2">Common Questions <span class="acc">Answered</span></h2><div class="faq-wrap"><div class="faq-it"><div class="faq-q">Can I claim home office expenses?</div><div class="faq-a">Yes. If you work from home, you may be eligible to claim a portion of your rent, utilities, internet, and supplies as home office expenses on your T1.</div></div><div class="faq-it"><div class="faq-q">What if I worked in another province?</div><div class="faq-a">We handle multi-province returns and ensure your income is allocated correctly between provinces for proper tax treatment.</div></div><div class="faq-it"><div class="faq-q">How long does it take to get my refund?</div><div class="faq-a">Electronic filings through NETFILE typically result in refunds within 2 weeks. We file electronically for all eligible returns.</div></div><div class="faq-it"><div class="faq-q">Do you offer tax planning as well as filing?</div><div class="faq-a">Absolutely. We provide year-round tax planning including RRSP contribution timing, income splitting, and deduction strategies, not just annual filing.</div></div></div></div></section>
+<section data-reveal><div class="container" style="max-width:860px"><h2 class="sh2">Common Questions <span class="acc">Answered</span></h2><div class="faq-wrap"><div class="faq-it"><div class="faq-q">Can I claim home office expenses?</div><div class="faq-a">Yes. If you work from home, you may be eligible to claim a portion of your rent, utilities, internet, and supplies as home office expenses on your T1.</div></div><div class="faq-it"><div class="faq-q">What if I worked in another province?</div><div class="faq-a">We handle multi-province returns and ensure your income is allocated correctly between provinces for proper tax treatment.</div></div><div class="faq-it"><div class="faq-q">How long does it take to get my refund?</div><div class="faq-a">Electronic filings through NETFILE typically result in refunds within 2 weeks. We file electronically for all eligible returns.</div></div><div class="faq-it"><div class="faq-q">Do you offer tax planning as well as filing?</div><div class="faq-a">Absolutely. We provide year-round tax planning including RRSP contribution timing, income splitting, and deduction strategies, not just annual filing.</div></div></div></div></section>
 
 <section class="svc-imgband" data-reveal>
   <div class="svc-imgband-bg" style="background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=70')"></div>
@@ -573,7 +588,6 @@ h1,h2,h3,.sh2,.cta-h,.page-hero h1,.art-body h2,.art-body h3,.faq-q{text-wrap:ba
 
 <section class="sec-reviews bg-light" data-reveal>
     <div class="container">
-      <p class="eyebrow">Client Reviews</p>
       <h2 class="sh2">Kitchener Residents Trust Us With Their Personal Taxes</h2>
       <div class="reviews-grid"><div class="rc">
           <div class="rc-stars"><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span></div>
@@ -692,6 +706,27 @@ h1,h2,h3,.sh2,.cta-h,.page-hero h1,.art-body h2,.art-body h3,.faq-q{text-wrap:ba
 </script>
 <script>
 (function(){var els=document.querySelectorAll('[data-reveal]');if(!els.length)return;var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});els.forEach(function(el){io.observe(el)})})();
+</script>
+<script>
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var els=document.querySelectorAll('.sn, .ibs .n, .istat .n');if(!els.length)return;
+  function animate(el){
+    var raw=el.textContent.trim();
+    var m=raw.match(/^([0-9]+(?:\.[0-9]+)?)(.*)$/);if(!m)return;
+    var target=parseFloat(m[1]),suffix=m[2],dec=(m[1].split('.')[1]||'').length;
+    var t0=null,dur=900;
+    function step(ts){
+      if(!t0)t0=ts;
+      var p=Math.min((ts-t0)/dur,1);p=1-Math.pow(1-p,4);
+      el.textContent=(target*p).toFixed(dec)+suffix;
+      if(p<1)requestAnimationFrame(step);else el.textContent=raw;
+    }
+    requestAnimationFrame(step);
+  }
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){animate(e.target);io.unobserve(e.target)}})},{threshold:.6});
+  els.forEach(function(el){io.observe(el)});
+})();
 </script>
 </body>
 </html>

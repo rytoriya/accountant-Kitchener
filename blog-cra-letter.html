@@ -104,7 +104,7 @@ img{display:block;max-width:100%}
 .nav-cta-btn:hover{background:var(--gd);box-shadow:0 4px 16px rgba(58,158,73,.3)}
 
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
-.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s}
 
 @media(max-width:1140px){
   .hamburger{display:flex}
@@ -186,7 +186,7 @@ img{display:block;max-width:100%}
   padding:11px 22px;border-radius:var(--r);
   font-family:var(--fb);font-size:12.5px;font-weight:700;
   letter-spacing:.06em;text-transform:uppercase;
-  text-decoration:none;border:2px solid var(--g);transition:all .2s;
+  text-decoration:none;border:2px solid var(--g);transition:background .2s,color .2s;
 }
 .btn-ol:hover{background:var(--g);color:var(--wht);text-decoration:none}
 .hero-trust{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
@@ -354,9 +354,9 @@ section{padding:80px 0}
 .faq-it{border-bottom:1.5px solid var(--bdr);padding:18px 0}
 .faq-q{font-family:var(--fh);font-size:17px;font-weight:700;color:var(--blk);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px}
 .faq-q::after{content:'+';font-family:var(--fb);font-size:22px;font-weight:300;color:var(--g);flex-shrink:0;transition:transform .2s}
-.faq-a{font-family:var(--fb);font-size:15px;color:var(--body);line-height:1.72;padding-top:10px;display:none}
+.faq-a{font-family:var(--fb);font-size:15px;color:var(--body);line-height:1.72}
 .faq-it.open .faq-q::after{content:'\2212'}
-.faq-it.open .faq-a{display:block}
+
 .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:36px}
 .tc{background:var(--wht);border:1.5px solid var(--bdr);border-radius:var(--rl);padding:28px 22px;text-align:center;transition:box-shadow .2s,transform .2s}
 .tc:hover{box-shadow:var(--shl);transform:translateY(-3px)}
@@ -430,6 +430,22 @@ h1,h2,h3,.sh2,.cta-h,.page-hero h1,.art-body h2,.art-body h3,.faq-q{text-wrap:ba
 @media(prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none}}
 :focus-visible{outline:2px solid var(--g);outline-offset:3px;border-radius:3px}
 
+
+/* ── MOTION PASS (emil-design-eng) ── */
+:root{--eo:cubic-bezier(.23,1,.32,1)}
+.btn-gp,.btn-dk,.btn-p,.btn-gp-sm,.btn-w,.fsub,.nav-cta-btn{transition:background .2s,transform .16s var(--eo),box-shadow .2s}
+.btn-ol,.btn-gh,.btn-wg{transition:background .2s,color .2s,border-color .2s,transform .16s var(--eo)}
+:where(.btn-gp,.btn-dk,.btn-ol,.btn-p,.btn-gp-sm,.btn-gh,.btn-w,.btn-wg,.nav-cta-btn,.fsub):active{transform:scale(.97)}
+@media(hover:none){
+  .svc-card:hover,.pain-card:hover,.ind-card:hover,.tc:hover,.bc:hover,.rel-card:hover,.rc:hover{transform:none}
+  .svc-card:hover .svc-photo{transform:none}
+}
+.faq-a{display:block;max-height:0;overflow:hidden;padding-top:0;transition:max-height .35s var(--eo),padding-top .35s var(--eo)}
+.faq-it.open .faq-a{max-height:340px;padding-top:10px}
+.faq-q::after{transition:transform .25s var(--eo)}
+.faq-it.open .faq-q::after{transform:rotate(180deg)}
+@media(prefers-reduced-motion:reduce){.faq-a{transition:none}.faq-q::after{transition:none}}
+
 </style>
 </head>
 <body>
@@ -487,7 +503,7 @@ h1,h2,h3,.sh2,.cta-h,.page-hero h1,.art-body h2,.art-body h3,.faq-q{text-wrap:ba
 <h2>What To Do When You Receive a CRA Letter</h2>
 <ul><li>Read the letter fully and identify what type of correspondence it is</li><li>Note the response deadline (typically 30 days from the date of the letter)</li><li>Gather the documents referenced in the letter</li><li>Do not contact CRA directly until you have reviewed the situation with a professional</li><li>Contact your accountant immediately if the letter involves a proposed reassessment, audit notification, or collections matter</li></ul>
 <p>Our <a href="cpa-kitchener.html">Kitchener professional team</a> represents clients in CRA correspondence, audits, and objections. We draft responses, attend to CRA requests on your behalf, and work to achieve the best possible outcome. If you have received a CRA letter and are unsure how to respond, contact us before the deadline.</p></div>
-<section class="rel-sec" data-reveal><div class="container"><p class="eyebrow">Keep Reading</p><h2 class="sh2">More from the <span class="acc">Kitchener</span> Blog</h2><div class="rel-grid"><a href="blog-rrsp-vs-tfsa.html" class="rel-card"><div class="rel-cat">Tax Planning</div><h4>RRSP vs TFSA: Which Should You Contribute to in 2025?</h4></a><a href="blog-incorporate-kitchener.html" class="rel-card"><div class="rel-cat">Small Business</div><h4>When Should You Incorporate Your Kitchener Business?</h4></a><a href="blog-hst-guide.html" class="rel-card"><div class="rel-cat">HST/GST</div><h4>HST in Ontario: A Complete Guide for Small Business Owners</h4></a><a href="blog-rental-income-tax.html" class="rel-card"><div class="rel-cat">Real Estate</div><h4>Rental Income Tax in Ontario: What Every Landlord Needs to Know</h4></a><a href="blog-salary-vs-dividend.html" class="rel-card"><div class="rel-cat">Business Tax</div><h4>Salary vs Dividend: How to Pay Yourself From Your Corporation</h4></a></div></div></section>
+<section class="rel-sec" data-reveal><div class="container"><h2 class="sh2">More from the <span class="acc">Kitchener</span> Blog</h2><div class="rel-grid"><a href="blog-rrsp-vs-tfsa.html" class="rel-card"><div class="rel-cat">Tax Planning</div><h4>RRSP vs TFSA: Which Should You Contribute to in 2025?</h4></a><a href="blog-incorporate-kitchener.html" class="rel-card"><div class="rel-cat">Small Business</div><h4>When Should You Incorporate Your Kitchener Business?</h4></a><a href="blog-hst-guide.html" class="rel-card"><div class="rel-cat">HST/GST</div><h4>HST in Ontario: A Complete Guide for Small Business Owners</h4></a><a href="blog-rental-income-tax.html" class="rel-card"><div class="rel-cat">Real Estate</div><h4>Rental Income Tax in Ontario: What Every Landlord Needs to Know</h4></a><a href="blog-salary-vs-dividend.html" class="rel-card"><div class="rel-cat">Business Tax</div><h4>Salary vs Dividend: How to Pay Yourself From Your Corporation</h4></a></div></div></section>
 <section class="sec-cta" data-reveal>
     <div class="container ta-c">
       <h2 class="cta-h">Ready to Work With a Kitchener Accountant?</h2>
