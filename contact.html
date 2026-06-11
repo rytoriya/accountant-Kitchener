@@ -92,16 +92,16 @@ img{display:block;max-width:100%}
 
 .nav-cta-btn{
   display:inline-block;
-  background:var(--g);color:var(--wht)!important;
+  background:transparent;color:var(--g)!important;
   padding:0 17px;height:38px;line-height:38px;
-  border-radius:var(--r);margin-left:8px;
+  border-radius:var(--r);margin-left:8px;border:1.5px solid var(--g);
   font-family:var(--fb);font-size:11px;font-weight:700;
   letter-spacing:.05em;text-transform:uppercase;
   text-decoration:none!important;
-  transition:background .2s,box-shadow .2s;
+  transition:background .2s,color .2s,box-shadow .2s;
   white-space:nowrap;flex-shrink:0;
 }
-.nav-cta-btn:hover{background:var(--gd);box-shadow:0 4px 16px rgba(58,158,73,.3)}
+.nav-cta-btn:hover{background:var(--g);color:var(--wht)!important;box-shadow:0 4px 16px rgba(58,158,73,.3)}
 
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
 .hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s}
@@ -206,7 +206,7 @@ img{display:block;max-width:100%}
   overflow:hidden;margin-top:52px;
 }
 .sb{background:var(--wht);padding:22px 18px;text-align:center}
-.sn{font-family:var(--fh);font-size:32px;font-weight:800;color:var(--g);display:block;line-height:1}
+.sn{font-family:var(--fh);font-size:32px;font-weight:800;color:var(--blk);display:block;line-height:1}
 .sl{font-family:var(--fb);font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:5px;display:block}
 
 /* PAGE HERO — DARK */
@@ -550,7 +550,7 @@ body{animation:pageIn .45s ease-out}
     </div>
     <div><div class="form-card" id="book">
   <h3 class="form-h">Send Us a Message</h3>
-  <form class="lf">
+  <form class="lf" name="contact" method="POST" data-netlify="true"><input type="hidden" name="form-name" value="contact">
     <div class="fr2">
       <div class="fg"><label>Full Name *</label><input type="text" placeholder="Jane Smith" required></div>
       <div class="fg"><label>Phone</label><input type="tel" placeholder="(519) 000-0000"></div>
@@ -628,13 +628,7 @@ body{animation:pageIn .45s ease-out}
   document.querySelectorAll('.main-nav a').forEach(function(a){
     if(a.getAttribute('href')===cp)a.classList.add('active');
   });
-  var f=document.querySelector('.lf');
-  if(f)f.addEventListener('submit',function(e){
-    e.preventDefault();
-    var b=f.querySelector('.fsub');
-    b.textContent='Message sent. We will be in touch soon.';
-    b.style.background='#2C7A38';b.disabled=true;
-  });
+
 })();
 </script>
 <script>
