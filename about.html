@@ -461,8 +461,8 @@ body{animation:pageIn .45s ease-out}
 .mcta-call{color:var(--ink)}
 .mcta-book{background:var(--g);color:#fff}
 @media(max-width:860px){.mcta{display:grid}}
-[data-clip]{clip-path:inset(0 0 100% 0)}
-[data-clip].vis{clip-path:inset(-60px -60px -60px -60px);transition:clip-path .9s var(--eo)}
+[data-clip]{opacity:0;transform:translateY(22px)}
+[data-clip].vis{opacity:1;transform:translateY(0);transition:opacity .75s var(--eo),transform .75s var(--eo)}
 @keyframes kb{from{transform:scale(1)}to{transform:scale(1.08)}}
 .imgband.vis .imgband-bg,.svc-imgband.vis .svc-imgband-bg{animation:kb 18s linear infinite alternate}
 .svc-lnk::after{content:'\2192';display:inline-block;margin-left:6px;transition:transform .2s var(--eo)}
@@ -478,7 +478,7 @@ body{animation:pageIn .45s ease-out}
 @media(prefers-reduced-motion:reduce){
   body{animation:none}
   .mcta,[data-clip].vis{transition:none}
-  [data-clip]{clip-path:none}
+  [data-clip]{opacity:1;transform:none}
   .imgband.vis .imgband-bg,.svc-imgband.vis .svc-imgband-bg{animation:none}
   .read-progress{animation:none;transform:scaleX(0)}
 }
@@ -757,7 +757,7 @@ body{animation:pageIn .45s ease-out}
   }else if(bar){bar.classList.add('show');}
   var clips=document.querySelectorAll('[data-clip]');
   if(clips.length){
-    var io2=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io2.unobserve(e.target)}})},{threshold:.25});
+    var io2=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io2.unobserve(e.target)}})},{threshold:0});
     clips.forEach(function(el){io2.observe(el)});
   }
   document.querySelectorAll('.faq-wrap').forEach(function(w){
