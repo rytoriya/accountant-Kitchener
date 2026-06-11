@@ -446,12 +446,50 @@ h1,h2,h3,.sh2,.cta-h,.page-hero h1,.art-body h2,.art-body h3,.faq-q{text-wrap:ba
 .faq-it.open .faq-q::after{transform:rotate(180deg)}
 @media(prefers-reduced-motion:reduce){.faq-a{transition:none}.faq-q::after{transition:none}}
 
+
+/* ── ENHANCE PASS ── */
+@keyframes pageIn{from{opacity:0}to{opacity:1}}
+body{animation:pageIn .45s ease-out}
+.hdr-inner{transition:height .25s var(--eo)}
+.logo-wrap img{transition:height .25s var(--eo)}
+.site-header.compact .hdr-inner{height:58px}
+.site-header.compact .logo-wrap img{height:32px}
+.site-header.compact .main-nav>li>a,.site-header.compact .main-nav>li>.dt{height:58px;line-height:58px}
+.mcta{position:fixed;left:0;right:0;bottom:0;z-index:950;display:none;grid-template-columns:1fr 1fr;background:var(--wht);border-top:1.5px solid var(--bdr);box-shadow:0 -4px 20px rgba(0,0,0,.1);transform:translateY(102%);transition:transform .35s var(--eo);padding-bottom:env(safe-area-inset-bottom)}
+.mcta.show{transform:none}
+.mcta a{display:flex;align-items:center;justify-content:center;gap:7px;padding:15px 8px;font-family:var(--fb);font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;text-decoration:none}
+.mcta-call{color:var(--ink)}
+.mcta-book{background:var(--g);color:#fff}
+@media(max-width:860px){.mcta{display:grid}}
+[data-clip]{clip-path:inset(0 0 100% 0)}
+[data-clip].vis{clip-path:inset(-60px -60px -60px -60px);transition:clip-path .9s var(--eo)}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.08)}}
+.imgband.vis .imgband-bg,.svc-imgband.vis .svc-imgband-bg{animation:kb 18s linear infinite alternate}
+.svc-lnk::after{content:'\2192';display:inline-block;margin-left:6px;transition:transform .2s var(--eo)}
+.svc-card:hover .svc-lnk::after{transform:translateX(4px)}
+.ostat{display:inline-flex;align-items:center;gap:6px;font-weight:700}
+.ostat::before{content:'';width:7px;height:7px;border-radius:50%;background:currentColor;flex-shrink:0}
+.o-open{color:#9be3a8}
+.o-closed{color:#cfd6cf}
+@supports (animation-timeline: scroll()) {
+  .read-progress{position:fixed;top:0;left:0;width:100%;height:3px;background:var(--g);transform-origin:0 50%;transform:scaleX(0);animation:rpg linear;animation-timeline:scroll();z-index:1001}
+  @keyframes rpg{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+}
+@media(prefers-reduced-motion:reduce){
+  body{animation:none}
+  .mcta,[data-clip].vis{transition:none}
+  [data-clip]{clip-path:none}
+  .imgband.vis .imgband-bg,.svc-imgband.vis .svc-imgband-bg{animation:none}
+  .read-progress{animation:none;transform:scaleX(0)}
+}
+
 </style>
 </head>
 <body>
 <div class="topbar"><div class="container">
     <span>142 Dubrick Crescent, Kitchener, ON N2E 4G3</span>
-    <div style="display:flex;gap:20px">
+    <div style="display:flex;gap:20px;align-items:center">
+      <span id="open-now"></span>
       <a href="tel:6475649666">(647) 564-9666</a>
       <a href="mailto:contact@accountantkitchener.ca">contact@accountantkitchener.ca</a>
     </div>
@@ -587,6 +625,43 @@ h1,h2,h3,.sh2,.cta-h,.page-hero h1,.art-body h2,.art-body h3,.faq-q{text-wrap:ba
 </script>
 <script>
 (function(){var els=document.querySelectorAll('[data-reveal]');if(!els.length)return;var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});els.forEach(function(el){io.observe(el)})})();
+</script>
+<div class="mcta"><a href="tel:6475649666" class="mcta-call">Call (647) 564-9666</a><a href="contact.html" class="mcta-book">Book Free Consultation</a></div>
+<script>
+(function(){
+  var hdr=document.querySelector('.site-header');
+  if(hdr){
+    var s=document.createElement('div');
+    s.style.cssText='position:absolute;top:0;left:0;height:120px;width:1px;pointer-events:none';
+    document.body.prepend(s);
+    new IntersectionObserver(function(en){hdr.classList.toggle('compact',!en[0].isIntersecting)}).observe(s);
+  }
+  var bar=document.querySelector('.mcta');
+  var hero=document.querySelector('.hero, .page-hero, .art-hero');
+  if(bar&&hero){
+    new IntersectionObserver(function(en){bar.classList.toggle('show',!en[0].isIntersecting)}).observe(hero);
+  }else if(bar){bar.classList.add('show');}
+  var clips=document.querySelectorAll('[data-clip]');
+  if(clips.length){
+    var io2=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io2.unobserve(e.target)}})},{threshold:.25});
+    clips.forEach(function(el){io2.observe(el)});
+  }
+  document.querySelectorAll('.faq-wrap').forEach(function(w){
+    w.addEventListener('click',function(ev){
+      var q=ev.target.closest('.faq-q');if(!q)return;
+      var cur=q.closest('.faq-it');
+      w.querySelectorAll('.faq-it.open').forEach(function(o){if(o!==cur)o.classList.remove('open')});
+    });
+  });
+  var slot=document.getElementById('open-now');
+  if(slot){try{
+    var p=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Toronto',hour:'numeric',hour12:false,weekday:'short'}).formatToParts(new Date());
+    var h=+p.find(function(x){return x.type==='hour'}).value;
+    var wd=p.find(function(x){return x.type==='weekday'}).value;
+    var open=wd!=='Sun'&&h>=10&&h<21;
+    slot.innerHTML=open?'<span class="ostat o-open">Open now until 9pm</span>':'<span class="ostat o-closed">Currently closed</span>';
+  }catch(e){}}
+})();
 </script>
 </body>
 </html>
