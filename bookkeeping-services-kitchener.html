@@ -19,7 +19,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --g:#3A9E49;--gd:#2C7A38;--gl:#E8F7EA;--gm:#d4efda;
-  --blk:#111;--ink:#1a1a1a;--body:#444;--muted:#777;--light:#f5f5f3;
+  --blk:#111;--ink:#1a1a1a;--body:#444;--muted:#616161;--light:#f5f5f3;
   --bdr:#e0e0db;--wht:#fff;
   --fh:'Playfair Display',Georgia,serif;
   --fb:'Open Sans',system-ui,sans-serif;
@@ -445,6 +445,16 @@ section{padding:80px 0}
 .istat .l{font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:.08em;margin-top:6px;display:block}
 @media(max-width:860px){.photo-split{grid-template-columns:1fr;gap:32px}.photo-split-img img{height:300px}.svc-imgband-grid{grid-template-columns:1fr}}
 @media(max-width:800px){.svc-imgband-stats{grid-template-columns:1fr 1fr}}
+
+/* ── QUALITY PASS ── */
+h1,h2,h3,.sh2,.cta-h,.page-hero h1,.art-body h2,.art-body h3,.faq-q{text-wrap:balance}
+.sec-lead,.prose p,.art-body p,.ph-lead,.hero-sub{text-wrap:pretty}
+[data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
+[data-reveal].vis{opacity:1;transform:none}
+[data-delay="1"]{transition-delay:.08s}[data-delay="2"]{transition-delay:.16s}[data-delay="3"]{transition-delay:.24s}[data-delay="4"]{transition-delay:.32s}[data-delay="5"]{transition-delay:.40s}[data-delay="6"]{transition-delay:.48s}
+@media(prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none}}
+:focus-visible{outline:2px solid var(--g);outline-offset:3px;border-radius:3px}
+
 </style>
 </head>
 <body>
@@ -487,14 +497,14 @@ section{padding:80px 0}
   </div></div>
 </header>
 <main>
-<section class="page-hero"><div class="container">
+<section class="page-hero" data-reveal><div class="container">
   <p class="eyebrow">Bookkeeping Kitchener</p>
   <h1><span class="acc">Bookkeeping Services</span><br>Kitchener</h1>
   <p class="ph-lead">Professional monthly bookkeeping for small businesses in Kitchener. Clean books, timely reporting, and a stress-free year-end at affordable rates.</p>
   <div class="ph-btns"><a href="contact.html" class="btn-gp-sm">Book a Free Consultation</a><a href="tel:6475649666" class="btn-gh">Call (647) 564-9666</a></div>
 </div></section>
 
-<section>
+<section data-reveal>
   <div class="container">
     <div class="photo-split">
       <div>
@@ -516,7 +526,7 @@ section{padding:80px 0}
   </div>
 </section>
 
-<section class="content-sec"><div class="container"><div class="split">
+<section class="content-sec" data-reveal><div class="container"><div class="split">
   <div class="prose"><p class="eyebrow">Bookkeeping Services</p><h2 class="sh2">Bookkeeping in <span class="acc">Kitchener</span><br>You Can Rely On</h2>
 <p>Accurate bookkeeping is the foundation of every financially healthy business. Our Kitchener bookkeeping services keep your accounts organized, your reporting current, and your <a href="tax-filing-kitchener.html">year-end tax filing</a> straightforward, so you always know exactly where your business stands.</p>
 <h3>Monthly Bookkeeping</h3>
@@ -545,7 +555,7 @@ section{padding:80px 0}
 </div></div></section>
 
 
-<section class="svc-imgband">
+<section class="svc-imgband" data-reveal>
   <div class="svc-imgband-bg" style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=70')"></div>
   <div class="container">
     <div class="svc-imgband-grid">
@@ -564,7 +574,7 @@ section{padding:80px 0}
   </div>
 </section>
 
-<section class="sec-reviews bg-light">
+<section class="sec-reviews bg-light" data-reveal>
     <div class="container">
       <p class="eyebrow">Client Reviews</p>
       <h2 class="sh2">What Our Clients Say</h2>
@@ -607,7 +617,7 @@ section{padding:80px 0}
       <div class="gbadge"><span class="gg">G</span><span>5.0 / 5 on Google</span><span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span></span></div>
     </div>
   </section>
-<section class="sec-cta">
+<section class="sec-cta" data-reveal>
     <div class="container ta-c">
       <h2 class="cta-h">Ready to Work With a Kitchener Accountant?</h2>
       <p class="cta-p">Book a free consultation with our professional team.<br>No obligation, no jargon.</p>
@@ -682,6 +692,9 @@ section{padding:80px 0}
     b.style.background='#2C7A38';b.disabled=true;
   });
 })();
+</script>
+<script>
+(function(){var els=document.querySelectorAll('[data-reveal]');if(!els.length)return;var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});els.forEach(function(el){io.observe(el)})})();
 </script>
 </body>
 </html>

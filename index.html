@@ -19,7 +19,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --g:#3A9E49;--gd:#2C7A38;--gl:#E8F7EA;--gm:#d4efda;
-  --blk:#111;--ink:#1a1a1a;--body:#444;--muted:#777;--light:#f5f5f3;
+  --blk:#111;--ink:#1a1a1a;--body:#444;--muted:#616161;--light:#f5f5f3;
   --bdr:#e0e0db;--wht:#fff;
   --fh:'Playfair Display',Georgia,serif;
   --fb:'Open Sans',system-ui,sans-serif;
@@ -282,9 +282,10 @@ section{padding:80px 0}
 @media(max-width:540px){.svc-grid{grid-template-columns:1fr}}
 
 /* WHY POINTS */
-.why-pts{display:flex;flex-direction:column;gap:24px}
+.why-pts{display:flex;flex-direction:column;gap:24px;counter-reset:why}
 .why-pt{display:flex;gap:15px;align-items:flex-start}
-.why-ico{width:44px;height:44px;background:var(--gl);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;margin-top:2px}
+.why-ico{width:40px;height:40px;background:var(--gl);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:0;flex-shrink:0;margin-top:4px;counter-increment:why}
+.why-ico::after{content:counter(why);font-family:var(--fh);font-size:17px;font-weight:700;color:var(--gd);line-height:1}
 .why-pt h4{font-family:var(--fh);font-size:17px;font-weight:700;color:var(--blk);margin-bottom:4px}
 .why-pt p{font-family:var(--fb);font-size:14.5px;color:var(--body);line-height:1.65}
 
@@ -446,8 +447,9 @@ section{padding:80px 0}
 
 /* Pain points */
 .pain{background:var(--light)}
-.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.pain-card{background:var(--wht);border:1.5px solid var(--bdr);border-left:3px solid #d9534f;border-radius:var(--rl);padding:26px 24px;transition:box-shadow .2s,transform .2s}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:pain}
+.pain-card{background:var(--wht);border:1.5px solid var(--bdr);border-radius:var(--rl);padding:28px 24px;transition:box-shadow .2s,transform .2s;counter-increment:pain}
+.pain-card::before{content:counter(pain,decimal-leading-zero);font-family:var(--fh);font-size:11px;font-weight:700;color:var(--g);letter-spacing:.1em;display:block;margin-bottom:12px;opacity:.85}
 .pain-card:hover{box-shadow:var(--shm);transform:translateY(-3px)}
 .pain-card h4{font-family:var(--fh);font-size:17px;font-weight:700;color:var(--blk);margin-bottom:7px}
 .pain-card p{font-family:var(--fb);font-size:14px;color:var(--body);line-height:1.6}
@@ -482,7 +484,8 @@ section{padding:80px 0}
 .local-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .local-list{display:flex;flex-direction:column;gap:16px;margin-top:24px}
 .local-li{display:flex;gap:13px;align-items:flex-start}
-.local-li .ic{width:26px;height:26px;border-radius:7px;background:rgba(58,158,73,.15);color:var(--gd);font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.local-li .ic{width:28px;height:28px;border-radius:7px;background:rgba(58,158,73,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:0}
+.local-li .ic::after{content:"\2713";font-size:13px;font-weight:700;color:var(--gd);line-height:1}
 .local-li div{font-family:var(--fb);font-size:14.5px;color:var(--body);line-height:1.55}
 .local-li b{color:var(--blk);font-weight:700}
 .local-photo-col{border-radius:var(--rl);overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,.14)}
@@ -492,16 +495,34 @@ section{padding:80px 0}
 /* Industries */
 .industries{background:var(--wht)}
 .ind-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:42px}
-.ind-card{background:var(--wht);border:1.5px solid var(--bdr);border-radius:var(--rl);padding:24px 18px;text-align:center;transition:border-color .2s,box-shadow .2s,transform .2s}
+.ind-card{background:var(--wht);border:1.5px solid var(--bdr);border-radius:var(--rl);padding:22px 18px;text-align:left;transition:border-color .2s,box-shadow .2s,transform .2s}
 .ind-card:hover{border-color:var(--g);box-shadow:var(--shm);transform:translateY(-3px)}
-.ind-ico{font-size:27px;margin-bottom:11px;display:block;line-height:1}
-.ind-card h4{font-family:var(--fb);font-size:14.5px;font-weight:700;color:var(--blk);margin-bottom:4px}
+.ind-ico{display:none}
+.ind-card h4{font-family:var(--fb);font-size:15px;font-weight:700;color:var(--blk);margin-bottom:5px}
 .ind-card p{font-family:var(--fb);font-size:12.5px;color:var(--muted);line-height:1.5}
 
 /* Home FAQ */
 .faq-sec{background:var(--wht)}
 .faq-narrow{max-width:780px;margin:0 auto}
 @media(max-width:500px){.fg-grid{grid-template-columns:1fr}.hero{padding:56px 0 64px}}
+
+/* ── QUALITY PASS ── */
+h1,h2,h3,.sh2,.cta-h,.page-hero h1,.art-body h2,.art-body h3,.faq-q{text-wrap:balance}
+.sec-lead,.prose p,.art-body p,.ph-lead,.hero-sub{text-wrap:pretty}
+[data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
+[data-reveal].vis{opacity:1;transform:none}
+[data-delay="1"]{transition-delay:.08s}[data-delay="2"]{transition-delay:.16s}[data-delay="3"]{transition-delay:.24s}[data-delay="4"]{transition-delay:.32s}[data-delay="5"]{transition-delay:.40s}[data-delay="6"]{transition-delay:.48s}
+@media(prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none}}
+:focus-visible{outline:2px solid var(--g);outline-offset:3px;border-radius:3px}
+
+
+/* Card stagger delays */
+.pain-card:nth-child(1){transition-delay:0s}.pain-card:nth-child(2){transition-delay:.08s}.pain-card:nth-child(3){transition-delay:.16s}.pain-card:nth-child(4){transition-delay:.24s}.pain-card:nth-child(5){transition-delay:.32s}.pain-card:nth-child(6){transition-delay:.40s}
+.svc-card:nth-child(1){transition-delay:0s}.svc-card:nth-child(2){transition-delay:.08s}.svc-card:nth-child(3){transition-delay:.16s}.svc-card:nth-child(4){transition-delay:.24s}.svc-card:nth-child(5){transition-delay:.32s}.svc-card:nth-child(6){transition-delay:.40s}
+.ind-card:nth-child(1){transition-delay:0s}.ind-card:nth-child(2){transition-delay:.07s}.ind-card:nth-child(3){transition-delay:.14s}.ind-card:nth-child(4){transition-delay:.21s}.ind-card:nth-child(5){transition-delay:.28s}.ind-card:nth-child(6){transition-delay:.35s}.ind-card:nth-child(7){transition-delay:.42s}.ind-card:nth-child(8){transition-delay:.49s}
+.rc:nth-child(1){transition-delay:0s}.rc:nth-child(2){transition-delay:.08s}.rc:nth-child(3){transition-delay:.16s}.rc:nth-child(4){transition-delay:.24s}.rc:nth-child(5){transition-delay:.32s}.rc:nth-child(6){transition-delay:.40s}
+.step:nth-child(1){transition-delay:0s}.step:nth-child(2){transition-delay:.1s}.step:nth-child(3){transition-delay:.2s}.step:nth-child(4){transition-delay:.3s}
+
 </style>
 </head>
 <body>
@@ -544,7 +565,7 @@ section{padding:80px 0}
   </div></div>
 </header>
 <main>
-<section class="hero">
+<section class="hero" data-reveal>
   <div class="container">
     <div class="hero-inner">
       <div class="hero-content-col">
@@ -606,20 +627,20 @@ section{padding:80px 0}
   </div>
 </div>
 
-<section class="pain">
+<section class="pain" data-reveal>
   <div class="container">
     <div class="sec-center">
-      <p class="eyebrow">Sound Familiar?</p>
+      <p style="font-family:var(--fh);font-size:clamp(15px,1.6vw,18px);font-weight:600;font-style:italic;color:var(--body);margin-bottom:14px;display:block">Sound familiar?</p>
       <h2 class="sh2">The Tax and Accounting Headaches<br>Kitchener Owners Know Too Well</h2>
       <p class="sec-lead">If any of these keep you up at night, you are not alone. They are exactly the problems we solve every day for clients across Kitchener and Waterloo.</p>
     </div>
     <div class="pain-grid">
-      <div class="pain-card"><h4>Dreading Tax Season</h4><p>Shoeboxes of receipts, missed slips, and a looming CRA deadline you keep pushing off until the last stressful week.</p></div>
-      <div class="pain-card"><h4>Overpaying the CRA</h4><p>No idea which deductions or credits you qualify for, so you quietly hand the government more than you legally owe.</p></div>
-      <div class="pain-card"><h4>Bookkeeping You Never Catch Up On</h4><p>Running a Kitchener business leaves no time for reconciliations, HST tracking, and payroll that always falls behind.</p></div>
-      <div class="pain-card"><h4>A CRA Letter in the Mailbox</h4><p>A review or reassessment notice arrives and you have no one in your corner who actually understands what it means.</p></div>
-      <div class="pain-card"><h4>An Accountant You Never Hear From</h4><p>You only get a call once a year at filing time, with no proactive advice and no answer when questions come up.</p></div>
-      <div class="pain-card"><h4>Unsure How to Structure Your Business</h4><p>Sole proprietor or incorporate? Salary or dividends? Costly decisions made without professional guidance.</p></div>
+      <div class="pain-card" data-reveal><h4>Dreading Tax Season</h4><p>Shoeboxes of receipts, missed slips, and a looming CRA deadline you keep pushing off until the last stressful week.</p></div>
+      <div class="pain-card" data-reveal><h4>Overpaying the CRA</h4><p>No idea which deductions or credits you qualify for, so you quietly hand the government more than you legally owe.</p></div>
+      <div class="pain-card" data-reveal><h4>Bookkeeping You Never Catch Up On</h4><p>Running a Kitchener business leaves no time for reconciliations, HST tracking, and payroll that always falls behind.</p></div>
+      <div class="pain-card" data-reveal><h4>A CRA Letter in the Mailbox</h4><p>A review or reassessment notice arrives and you have no one in your corner who actually understands what it means.</p></div>
+      <div class="pain-card" data-reveal><h4>An Accountant You Never Hear From</h4><p>You only get a call once a year at filing time, with no proactive advice and no answer when questions come up.</p></div>
+      <div class="pain-card" data-reveal><h4>Unsure How to Structure Your Business</h4><p>Sole proprietor or incorporate? Salary or dividends? Costly decisions made without professional guidance.</p></div>
     </div>
     <div class="pain-bridge">
       <p>You should not have to choose between running your life or business and staying on top of your finances. <span class="acc">That is our job.</span></p>
@@ -628,33 +649,32 @@ section{padding:80px 0}
   </div>
 </section>
 
-<section>
+<section data-reveal>
   <div class="container">
-    <p class="eyebrow">Our Services</p>
     <h2 class="sh2">Accounting and Tax Services<br>in <span class="acc">Kitchener</span></h2>
     <p class="sec-lead">From personal tax returns to full-service bookkeeping, our chartered accountants in Kitchener handle every aspect of your financial compliance.</p>
     <div class="svc-grid">
-      <a href="tax-filing-kitchener.html" class="svc-card">
+      <a data-reveal href="tax-filing-kitchener.html" class="svc-card">
         <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=70')"></div>
         <div class="svc-label"><h3>Tax Filing Kitchener</h3><span class="svc-lnk">Learn More</span></div>
       </a>
-      <a href="personal-tax-accountant-kitchener.html" class="svc-card">
+      <a data-reveal href="personal-tax-accountant-kitchener.html" class="svc-card">
         <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=70')"></div>
         <div class="svc-label"><h3>Personal Tax Accountant</h3><span class="svc-lnk">Learn More</span></div>
       </a>
-      <a href="small-business-tax-accountant-kitchener.html" class="svc-card">
+      <a data-reveal href="small-business-tax-accountant-kitchener.html" class="svc-card">
         <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=70')"></div>
         <div class="svc-label"><h3>Small Business Tax</h3><span class="svc-lnk">Learn More</span></div>
       </a>
-      <a href="bookkeeping-services-kitchener.html" class="svc-card">
+      <a data-reveal href="bookkeeping-services-kitchener.html" class="svc-card">
         <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=70')"></div>
         <div class="svc-label"><h3>Bookkeeping Services</h3><span class="svc-lnk">Learn More</span></div>
       </a>
-      <a href="payroll-services-kitchener.html" class="svc-card">
+      <a data-reveal href="payroll-services-kitchener.html" class="svc-card">
         <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=70')"></div>
         <div class="svc-label"><h3>Payroll Services</h3><span class="svc-lnk">Learn More</span></div>
       </a>
-      <a href="hst-filing-kitchener.html" class="svc-card">
+      <a data-reveal href="hst-filing-kitchener.html" class="svc-card">
         <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=70')"></div>
         <div class="svc-label"><h3>HST Filing Kitchener</h3><span class="svc-lnk">Learn More</span></div>
       </a>
@@ -662,26 +682,24 @@ section{padding:80px 0}
   </div>
 </section>
 
-<section class="process">
+<section class="process" data-reveal>
   <div class="container">
     <div class="sec-center">
-      <p class="eyebrow">How It Works</p>
       <h2 class="sh2">Getting Started Is Simple</h2>
       <p class="sec-lead">No confusing onboarding and no jargon. Just a clear, professional process designed to get your finances in order fast.</p>
     </div>
     <div class="steps">
-      <div class="step"><div class="step-num">1</div><h4>Book a Free Call</h4><p>Tell us about your situation in a no-obligation consultation. We listen first and explain your options in plain language.</p></div>
-      <div class="step"><div class="step-num">2</div><h4>Get a Clear Plan</h4><p>We review your documents and send a transparent, upfront quote with exactly what we will do and what it costs.</p></div>
-      <div class="step"><div class="step-num">3</div><h4>We Handle the Work</h4><p>From filing to bookkeeping to CRA correspondence, our team takes care of it accurately and on time, every time.</p></div>
-      <div class="step"><div class="step-num">4</div><h4>Stay Ahead Year-Round</h4><p>Ongoing advice and proactive planning so you are never scrambling at deadline and never overpaying again.</p></div>
+      <div class="step" data-reveal><div class="step-num">1</div><h4>Book a Free Call</h4><p>Tell us about your situation in a no-obligation consultation. We listen first and explain your options in plain language.</p></div>
+      <div class="step" data-reveal><div class="step-num">2</div><h4>Get a Clear Plan</h4><p>We review your documents and send a transparent, upfront quote with exactly what we will do and what it costs.</p></div>
+      <div class="step" data-reveal><div class="step-num">3</div><h4>We Handle the Work</h4><p>From filing to bookkeeping to CRA correspondence, our team takes care of it accurately and on time, every time.</p></div>
+      <div class="step" data-reveal><div class="step-num">4</div><h4>Stay Ahead Year-Round</h4><p>Ongoing advice and proactive planning so you are never scrambling at deadline and never overpaying again.</p></div>
     </div>
   </div>
 </section>
 
-<section class="imgband">
+<section class="imgband" data-reveal>
   <div class="imgband-bg" style="background-image:url('https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=1600&q=70')"></div>
   <div class="container">
-    <p class="eyebrow">Trusted Across Kitchener-Waterloo</p>
     <h2>A Local CPA Firm Built on Results,<br>Not Just Tax Returns</h2>
     <p class="lead">Individuals, families, and growing businesses across the region rely on us for accurate, proactive, and genuinely personal accounting.</p>
     <div class="imgband-stats">
@@ -693,11 +711,10 @@ section{padding:80px 0}
   </div>
 </section>
 
-<section>
+<section data-reveal>
   <div class="container">
     <div class="split">
       <div>
-        <p class="eyebrow">Why Choose Us</p>
         <h2 class="sh2">Kitchener's <span class="acc">Professional</span><br>Accounting Firm</h2>
         <p class="sec-lead">We combine the expertise of a large firm with the personal attention of a local Kitchener accountant.</p>
         <div class="why-pts">
@@ -723,11 +740,10 @@ section{padding:80px 0}
   </div>
 </section>
 
-<section class="local">
+<section class="local" data-reveal>
   <div class="container">
     <div class="local-grid">
       <div>
-        <p class="eyebrow">Proudly Local</p>
         <h2 class="sh2">An Accountant Who Knows<br><span class="acc">Kitchener-Waterloo</span></h2>
         <p class="sec-lead">We are not a faceless national chain. We are based right here at 142 Dubrick Crescent, and we understand the businesses, trades, and families that make this region tick.</p>
         <div class="local-list">
@@ -750,59 +766,57 @@ section{padding:80px 0}
   </div>
 </section>
 
-<section class="industries">
+<section class="industries" data-reveal>
   <div class="container">
     <div class="sec-center">
-      <p class="eyebrow">Who We Help</p>
       <h2 class="sh2">Trusted by Kitchener Individuals<br>and Industries</h2>
       <p class="sec-lead">Whatever your situation, our chartered professional accountants tailor the right tax and accounting approach for you.</p>
     </div>
     <div class="ind-grid">
-      <div class="ind-card"><span class="ind-ico">&#128106;</span><h4>Individuals &amp; Families</h4><p>Personal T1 returns and planning</p></div>
-      <div class="ind-card"><span class="ind-ico">&#127959;</span><h4>Trades &amp; Contractors</h4><p>HST, expenses, and bookkeeping</p></div>
-      <div class="ind-card"><span class="ind-ico">&#127968;</span><h4>Real Estate &amp; Realtors</h4><p>Commission income and incorporation</p></div>
-      <div class="ind-card"><span class="ind-ico">&#128187;</span><h4>Tech &amp; Startups</h4><p>Corporate tax and SR&amp;ED guidance</p></div>
-      <div class="ind-card"><span class="ind-ico">&#127869;</span><h4>Restaurants &amp; Retail</h4><p>Payroll, HST, and cash flow</p></div>
-      <div class="ind-card"><span class="ind-ico">&#129658;</span><h4>Medical &amp; Professionals</h4><p>Professional corporations and tax</p></div>
-      <div class="ind-card"><span class="ind-ico">&#128188;</span><h4>Self-Employed</h4><p>Sole proprietor returns and HST</p></div>
-      <div class="ind-card"><span class="ind-ico">&#127891;</span><h4>Students &amp; Newcomers</h4><p>First returns and credits</p></div>
+      <div class="ind-card" data-reveal><span class="ind-ico">&#128106;</span><h4>Individuals &amp; Families</h4><p>Personal T1 returns and planning</p></div>
+      <div class="ind-card" data-reveal><span class="ind-ico">&#127959;</span><h4>Trades &amp; Contractors</h4><p>HST, expenses, and bookkeeping</p></div>
+      <div class="ind-card" data-reveal><span class="ind-ico">&#127968;</span><h4>Real Estate &amp; Realtors</h4><p>Commission income and incorporation</p></div>
+      <div class="ind-card" data-reveal><span class="ind-ico">&#128187;</span><h4>Tech &amp; Startups</h4><p>Corporate tax and SR&amp;ED guidance</p></div>
+      <div class="ind-card" data-reveal><span class="ind-ico">&#127869;</span><h4>Restaurants &amp; Retail</h4><p>Payroll, HST, and cash flow</p></div>
+      <div class="ind-card" data-reveal><span class="ind-ico">&#129658;</span><h4>Medical &amp; Professionals</h4><p>Professional corporations and tax</p></div>
+      <div class="ind-card" data-reveal><span class="ind-ico">&#128188;</span><h4>Self-Employed</h4><p>Sole proprietor returns and HST</p></div>
+      <div class="ind-card" data-reveal><span class="ind-ico">&#127891;</span><h4>Students &amp; Newcomers</h4><p>First returns and credits</p></div>
     </div>
   </div>
 </section>
 
-<section class="sec-reviews bg-light">
+<section class="sec-reviews bg-light" data-reveal>
     <div class="container">
-      <p class="eyebrow">Client Reviews</p>
-      <h2 class="sh2">Reviews from Kitchener Clients</h2>
-      <div class="reviews-grid"><div class="rc">
+      <h2 class="sh2">What Kitchener Clients Say</h2>
+      <div class="reviews-grid"><div class="rc" data-reveal>
           <div class="rc-stars"><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span></div>
           <p class="rc-text">"Filing my personal taxes has always felt overwhelming, but the professionals here completely changed that. They were knowledgeable and made the whole process incredibly easy. Highly recommend."</p>
           <div class="rc-foot">
             <div class="rc-av">MS</div>
             <div><div class="rc-name">Muhammad Saad</div><div class="rc-src">Google Review</div></div>
           </div>
-        </div><div class="rc">
+        </div><div class="rc" data-reveal>
           <div class="rc-stars"><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span></div>
           <p class="rc-text">"Ibtehaj was professional, efficient, and very knowledgeable. He took the time to explain everything clearly and made the whole process smooth and stress-free. Highly recommend for anyone looking for reliable accounting services."</p>
           <div class="rc-foot">
             <div class="rc-av">JC</div>
             <div><div class="rc-name">Janet Campitelli-Montgomery</div><div class="rc-src">Google Review</div></div>
           </div>
-        </div><div class="rc">
+        </div><div class="rc" data-reveal>
           <div class="rc-stars"><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span></div>
           <p class="rc-text">"Extremely professional, knowledgeable, and reliable. They helped navigate both personal and business finances with great attention to detail. Their advice saved me time and money during tax season and beyond."</p>
           <div class="rc-foot">
             <div class="rc-av">CI</div>
             <div><div class="rc-name">Chinaar Inc.</div><div class="rc-src">Google Review</div></div>
           </div>
-        </div><div class="rc">
+        </div><div class="rc" data-reveal>
           <div class="rc-stars"><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span></div>
           <p class="rc-text">"Top-notch services without charging an arm and a leg. As a small business owner and Realtor, I appreciate their affordability and the fact that they never compromise on quality. Hashmi became a trusted advisor for my business."</p>
           <div class="rc-foot">
             <div class="rc-av">SR</div>
             <div><div class="rc-name">Syed Rizvi</div><div class="rc-src">Google Review</div></div>
           </div>
-        </div><div class="rc">
+        </div><div class="rc" data-reveal>
           <div class="rc-stars"><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span></div>
           <p class="rc-text">"As a student, filing taxes felt confusing and overwhelming, but the team made the entire process simple and stress-free. Incredibly patient and took the time to explain everything clearly. Highly recommend."</p>
           <div class="rc-foot">
@@ -810,7 +824,6 @@ section{padding:80px 0}
             <div><div class="rc-name">Haris Iqbal</div><div class="rc-src">Google Review</div></div>
           </div>
         </div></div><div class="rc rc-more" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:var(--gl);border-color:var(--gm)">
-          <div style="font-size:28px;margin-bottom:10px">&#11088;</div>
           <div class="rc-stars" style="margin-bottom:12px"><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span></div>
           <p style="font-family:var(--fb);font-size:14.5px;color:var(--gd);font-weight:600;margin-bottom:16px;line-height:1.5">Rated 5.0 by our Kitchener clients on Google</p>
           <a href="https://share.google/Pa9ECgfcJhgVurFEJ" target="_blank" rel="noopener" class="btn-p" style="font-size:12px;padding:11px 20px">Read All Reviews</a>
@@ -819,10 +832,9 @@ section{padding:80px 0}
     </div>
   </section>
 
-<section class="faq-sec">
+<section class="faq-sec" data-reveal>
   <div class="container">
     <div class="sec-center">
-      <p class="eyebrow">Common Questions</p>
       <h2 class="sh2">Questions Kitchener Clients<br>Ask Us Most</h2>
     </div>
     <div class="faq-narrow">
@@ -838,7 +850,7 @@ section{padding:80px 0}
   </div>
 </section>
 
-<section class="sec-cta">
+<section class="sec-cta" data-reveal>
     <div class="container ta-c">
       <h2 class="cta-h">Ready to Work With a Kitchener Accountant?</h2>
       <p class="cta-p">Book a free consultation with our professional team.<br>No obligation, no jargon.</p>
@@ -913,6 +925,9 @@ section{padding:80px 0}
     b.style.background='#2C7A38';b.disabled=true;
   });
 })();
+</script>
+<script>
+(function(){var els=document.querySelectorAll('[data-reveal]');if(!els.length)return;var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});els.forEach(function(el){io.observe(el)})})();
 </script>
 </body>
 </html>
