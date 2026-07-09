@@ -14,597 +14,9 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"AccountingService","name":"Accountant Kitchener","url":"https://www.accountantkitchener.ca","telephone":"+16475649666","email":"contact@accountantkitchener.ca","address":{"@type":"PostalAddress","streetAddress":"142 Dubrick Crescent","addressLocality":"Kitchener","addressRegion":"ON","postalCode":"N2E 4G3","addressCountry":"CA"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"5"}}
 </script>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,700&family=Open+Sans:wght@400;500;600;700&display=swap');
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --g:#3A9E49;--gd:#2C7A38;--gl:#E8F7EA;--gm:#d4efda;
-  --blk:#111;--ink:#1a1a1a;--body:#444;--muted:#616161;--light:#f5f5f3;
-  --bdr:#e0e0db;--wht:#fff;
-  --fh:'Playfair Display',Georgia,serif;
-  --fb:'Open Sans',system-ui,sans-serif;
-  --r:5px;--rl:12px;
-  --sh:0 1px 8px rgba(0,0,0,.06);
-  --shm:0 4px 24px rgba(0,0,0,.1);
-  --shl:0 8px 48px rgba(0,0,0,.14);
-}
-html{scroll-behavior:smooth}
-body{font-family:var(--fb);color:var(--ink);background:var(--wht);line-height:1.7;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
-a{color:var(--g);text-decoration:none}a:hover{text-decoration:underline}
-img{display:block;max-width:100%}
-.container{max-width:1240px;margin:0 auto;padding:0 32px}
-.ta-c{text-align:center}
-
-/* TOPBAR */
-.topbar{
-  background:var(--gd);border-bottom:1px solid rgba(0,0,0,.12);
-  padding:8px 0;font-family:var(--fb);font-size:12.5px;font-weight:500;color:#eafaec;
-}
-.topbar .container{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.topbar a{color:#e0ffe4;text-decoration:none;transition:color .15s}
-.topbar a:hover{color:var(--g)}
-
-/* HEADER — WHITE BAR */
-.site-header{
-  background:var(--wht);
-  border-bottom:3px solid var(--g);
-  box-shadow:0 2px 16px rgba(0,0,0,.08);
-  position:sticky;top:0;z-index:999;
-}
-.hdr-inner{
-  display:flex;align-items:center;justify-content:space-between;
-  height:72px;gap:16px;
-}
-.logo-wrap{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
-.logo-wrap img{height:42px;width:auto;display:block;object-fit:contain}
-.nav-wrap{display:flex;align-items:center;justify-content:flex-end;flex:1}
-
-/* NAV */
-.main-nav{display:flex;align-items:center;list-style:none;gap:0}
-.main-nav>li{position:relative}
-.main-nav>li>a,
-.main-nav>li>.dt{
-  display:block;padding:0 9px;height:72px;line-height:72px;
-  font-family:var(--fb);font-size:11.5px;font-weight:700;
-  letter-spacing:.03em;text-transform:uppercase;
-  color:#333;text-decoration:none;cursor:pointer;white-space:nowrap;
-  border-bottom:3px solid transparent;margin-bottom:-3px;
-  transition:color .2s,border-color .2s;
-}
-.main-nav>li>a:hover,
-.main-nav>li>.dt:hover{color:var(--g);border-bottom-color:var(--g)}
-.main-nav>li>a.active{color:var(--g);border-bottom-color:var(--g)}
-.dt::after{content:'';display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;margin-left:5px;vertical-align:middle;opacity:.5}
-
-.dd{
-  display:none;position:absolute;top:calc(100% + 3px);left:0;
-  background:var(--wht);border:1.5px solid var(--bdr);border-radius:var(--rl);
-  box-shadow:var(--shl);min-width:200px;padding:8px 0;z-index:999;
-}
-.dd a{
-  display:block;padding:10px 18px;
-  font-family:var(--fb);font-size:12.5px;font-weight:600;
-  letter-spacing:.04em;text-transform:uppercase;
-  color:var(--ink);text-decoration:none;transition:background .15s,color .15s;
-}
-.dd a:hover{background:var(--gl);color:var(--gd)}
-.main-nav>li:hover .dd{display:block}
-
-.nav-cta-btn{
-  display:inline-block;
-  background:transparent;color:var(--g)!important;
-  padding:0 17px;height:38px;line-height:38px;
-  border-radius:var(--r);margin-left:8px;border:1.5px solid var(--g);
-  font-family:var(--fb);font-size:11px;font-weight:700;
-  letter-spacing:.05em;text-transform:uppercase;
-  text-decoration:none!important;
-  transition:background .2s,color .2s,box-shadow .2s;
-  white-space:nowrap;flex-shrink:0;
-}
-.nav-cta-btn:hover{background:var(--g);color:var(--wht)!important;box-shadow:0 4px 16px rgba(58,158,73,.3)}
-
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
-.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s}
-
-@media(max-width:1140px){
-  .hamburger{display:flex}
-  .nav-wrap{
-    display:none;position:absolute;top:100%;left:0;right:0;
-    background:var(--wht);border-top:2px solid var(--g);
-    box-shadow:0 8px 32px rgba(0,0,0,.1);padding:12px 0 20px;
-  }
-  .nav-wrap.open{display:block}
-  .main-nav{flex-direction:column;align-items:stretch}
-  .main-nav>li>a,.main-nav>li>.dt{
-    height:auto;line-height:1;padding:13px 20px;
-    border-bottom:1px solid #eee;border-left:3px solid transparent;margin-bottom:0;
-  }
-  .main-nav>li>a.active{border-left-color:var(--g)}
-  .dd{position:static;box-shadow:none;border:none;border-radius:0;padding:0;background:#f9f9f7}
-  .dd a{padding:10px 30px;border-bottom:1px solid #eee;font-size:12px}
-  .main-nav>li.open .dd{display:block}
-  .nav-cta-btn{display:block;text-align:center;height:42px;line-height:42px;margin:14px 20px 0;border-radius:var(--r)}
-}
-
-/* HERO — SPLIT */
-.hero{background:var(--wht);position:relative;overflow:hidden;padding:0}
-.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:52px;min-height:480px;align-items:center;padding:72px 0}
-.hero-content-col{display:flex;flex-direction:column;justify-content:center}
-.hero-photo-col{border-radius:var(--rl);overflow:hidden;box-shadow:0 20px 64px rgba(0,0,0,.13)}
-.hero-photo-col img{width:100%;height:510px;object-fit:cover;display:block;transition:transform .6s ease}
-.hero-photo-col:hover img{transform:scale(1.02)}
-.hero-stats-bar{background:var(--light);border-top:1.5px solid var(--bdr)}
-.hero-stats-bar .hero-stats{grid-template-columns:repeat(4,1fr);margin-top:0;background:none;gap:0;border:none;border-radius:0}
-.hero-stats-bar .sb{background:transparent;border-right:1px solid var(--bdr)}
-.hero-stats-bar .sb:last-child{border-right:none}
-.h-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--gl);border:1.5px solid var(--gm);
-  color:var(--gd);
-  padding:6px 16px;border-radius:100px;
-  font-family:var(--fb);font-size:11.5px;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;margin-bottom:22px;
-}
-
-.hero h1{
-  font-family:var(--fh);font-size:clamp(34px,5vw,62px);
-  font-weight:800;color:var(--blk);
-  line-height:1.05;letter-spacing:-.025em;
-  margin-bottom:20px;max-width:720px;
-}
-.hero h1 .acc{color:var(--g)}
-.hero-sub{
-  font-family:var(--fb);font-size:17px;font-weight:400;
-  color:var(--body);max-width:500px;line-height:1.72;margin-bottom:36px;
-}
-.hero-acts{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;align-items:center}
-.btn-gp{
-  display:inline-block;background:var(--g);color:var(--wht);
-  padding:15px 32px;border-radius:var(--r);
-  font-family:var(--fb);font-size:13px;font-weight:700;
-  letter-spacing:.07em;text-transform:uppercase;
-  text-decoration:none;transition:background .2s,transform .15s,box-shadow .2s;
-  box-shadow:0 4px 18px rgba(58,158,73,.28);
-}
-.btn-gp:hover{background:var(--gd);transform:translateY(-2px);box-shadow:0 6px 24px rgba(58,158,73,.38);text-decoration:none}
-.btn-dk{
-  display:inline-block;background:var(--blk);color:var(--wht);
-  padding:15px 28px;border-radius:var(--r);
-  font-family:var(--fb);font-size:13px;font-weight:600;
-  letter-spacing:.05em;text-transform:uppercase;
-  text-decoration:none;transition:background .2s;
-}
-.btn-dk:hover{background:#2a2a2a;text-decoration:none}
-.btn-ol{
-  display:inline-block;background:transparent;color:var(--g);
-  padding:11px 22px;border-radius:var(--r);
-  font-family:var(--fb);font-size:12.5px;font-weight:700;
-  letter-spacing:.06em;text-transform:uppercase;
-  text-decoration:none;border:2px solid var(--g);transition:background .2s,color .2s;
-}
-.btn-ol:hover{background:var(--g);color:var(--wht);text-decoration:none}
-.hero-trust{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
-.ht-item{
-  display:flex;align-items:center;gap:8px;
-  font-family:var(--fb);font-size:13px;font-weight:500;color:#555;
-}
-.ht-check{
-  width:20px;height:20px;background:var(--gl);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  color:var(--g);font-size:11px;font-weight:700;flex-shrink:0;
-}
-.hero-stats{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:1px;background:var(--bdr);
-  border:1.5px solid var(--bdr);border-radius:var(--rl);
-  overflow:hidden;margin-top:52px;
-}
-.sb{background:var(--wht);padding:22px 18px;text-align:center}
-.sn{font-family:var(--fh);font-size:32px;font-weight:800;color:var(--blk);display:block;line-height:1}
-.sl{font-family:var(--fb);font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:5px;display:block}
-
-/* PAGE HERO — DARK */
-.page-hero{
-  background:#f7faf7;padding:64px 0 72px;
-  border-bottom:3px solid var(--g);
-  position:relative;overflow:hidden;
-}
-.page-hero::before{
-  content:'';position:absolute;right:-5%;top:-30%;
-  width:500px;height:500px;border-radius:50%;
-  background:radial-gradient(circle,rgba(58,158,73,.08) 0%,transparent 60%);
-}
-.page-hero .eyebrow{color:var(--g)}
-.page-hero h1{
-  font-family:var(--fh);font-size:clamp(28px,4vw,48px);
-  font-weight:800;color:var(--blk);
-  margin-bottom:16px;max-width:680px;
-  line-height:1.1;letter-spacing:-.02em;
-  position:relative;
-}
-.page-hero h1 .acc{color:var(--g)}
-.page-hero .ph-lead{font-family:var(--fb);font-size:17px;font-weight:400;color:#555;max-width:520px;margin-bottom:28px;line-height:1.7;position:relative}
-.ph-btns{display:flex;gap:14px;flex-wrap:wrap;position:relative}
-.btn-gp-sm{
-  display:inline-block;background:var(--g);color:var(--wht);
-  padding:13px 26px;border-radius:var(--r);
-  font-family:var(--fb);font-size:12.5px;font-weight:700;
-  letter-spacing:.07em;text-transform:uppercase;
-  text-decoration:none;transition:background .2s,transform .15s;
-}
-.btn-gp-sm:hover{background:var(--gd);transform:translateY(-1px);text-decoration:none}
-.btn-gh{
-  display:inline-block;background:transparent;color:var(--ink);
-  padding:13px 24px;border-radius:var(--r);
-  font-family:var(--fb);font-size:12.5px;font-weight:500;
-  letter-spacing:.05em;text-transform:uppercase;
-  text-decoration:none;border:1.5px solid var(--bdr);
-  transition:border-color .2s,color .2s;
-}
-.btn-gh:hover{border-color:var(--g);color:var(--g);text-decoration:none}
-
-/* SECTIONS */
-section{padding:80px 0}
-.bg-light{background:var(--light)}
-.eyebrow{font-family:var(--fb);font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--g);margin-bottom:12px;display:block}
-.sh2{font-family:var(--fh);font-size:clamp(26px,3.4vw,40px);font-weight:700;color:var(--blk);line-height:1.15;letter-spacing:-.02em;margin-bottom:16px}
-.sh2 .acc{color:var(--g)}
-.sec-lead{font-family:var(--fb);font-size:16.5px;font-weight:400;color:var(--body);max-width:620px;margin-bottom:44px;line-height:1.72}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-
-/* BUTTONS generic */
-.btn-p{
-  display:inline-block;background:var(--g);color:var(--wht);
-  padding:13px 28px;border-radius:var(--r);
-  font-family:var(--fb);font-size:12.5px;font-weight:700;
-  letter-spacing:.07em;text-transform:uppercase;
-  text-decoration:none;transition:background .2s,transform .15s;
-}
-.btn-p:hover{background:var(--gd);transform:translateY(-1px);text-decoration:none}
-
-/* SERVICE CARDS — photo style */
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.svc-card{
-  position:relative;border-radius:var(--rl);overflow:hidden;
-  aspect-ratio:4/3;display:block;text-decoration:none;
-  transition:transform .25s,box-shadow .25s;
-  background:var(--gd);
-}
-.svc-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.2);text-decoration:none}
-.svc-photo{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .45s ease}
-.svc-card:hover .svc-photo{transform:scale(1.06)}
-.svc-card::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(12,41,18,.88) 0%,rgba(0,0,0,.15) 55%,transparent 100%);z-index:1;transition:opacity .25s}
-.svc-card:hover::before{opacity:.95}
-.svc-label{position:absolute;bottom:0;left:0;right:0;padding:22px 20px 20px;z-index:2}
-.svc-label h3{font-family:var(--fh);font-size:19px;font-weight:700;color:#fff;margin-bottom:4px;line-height:1.2}
-.svc-lnk{font-family:var(--fb);font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g);display:inline-block}
-@media(max-width:860px){.svc-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:540px){.svc-grid{grid-template-columns:1fr}}
-
-/* WHY POINTS */
-.why-pts{display:flex;flex-direction:column;gap:24px;counter-reset:why}
-.why-pt{display:flex;gap:15px;align-items:flex-start}
-.why-ico{width:40px;height:40px;background:var(--gl);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:0;flex-shrink:0;margin-top:4px;counter-increment:why}
-.why-ico::after{content:counter(why);font-family:var(--fh);font-size:17px;font-weight:700;color:var(--gd);line-height:1}
-.why-pt h4{font-family:var(--fh);font-size:17px;font-weight:700;color:var(--blk);margin-bottom:4px}
-.why-pt p{font-family:var(--fb);font-size:14.5px;color:var(--body);line-height:1.65}
-
-/* DARK PANEL */
-.dp{background:var(--blk);border-radius:var(--rl);padding:36px;color:var(--wht)}
-.dp h3{font-family:var(--fh);font-size:22px;font-weight:700;color:var(--wht);margin-bottom:14px}
-.dp p{font-family:var(--fb);font-size:14.5px;color:#999;line-height:1.7;margin-bottom:18px}
-.cred-list{display:flex;flex-direction:column;gap:10px}
-.cred-item{display:flex;align-items:center;gap:10px;background:rgba(58,158,73,.1);border:1px solid rgba(58,158,73,.2);border-radius:var(--r);padding:10px 14px;font-family:var(--fb);font-size:13.5px;color:#ccc}
-.cred-item strong{color:var(--g)}
-.cdot{flex-shrink:0;font-size:0}.cdot::before{content:"\2713";font-size:12px;font-weight:700;color:var(--g)}
-
-/* REVIEWS */
-.reviews-outer{overflow:hidden;margin-bottom:32px}
-.reviews-grid{display:flex;gap:20px;width:max-content;animation:marquee 44s linear infinite}
-.reviews-grid:hover{animation-play-state:paused}
-.rc{flex:0 0 340px}
-@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){.reviews-grid{animation:none;flex-wrap:wrap;width:auto}.rc{flex:1 1 280px}}
-@media(max-width:600px){.rc{flex:0 0 280px}}
-.rc{background:var(--wht);border:1.5px solid var(--bdr);border-radius:var(--rl);padding:24px 22px}
-.rc-stars{font-size:15px;letter-spacing:1px;margin-bottom:10px}
-.rc-text{font-family:var(--fb);font-size:14.5px;font-style:italic;color:var(--body);line-height:1.65;margin-bottom:16px}
-.rc-foot{display:flex;align-items:center;gap:10px}
-.rc-av{width:36px;height:36px;border-radius:50%;background:var(--gl);color:var(--gd);display:flex;align-items:center;justify-content:center;font-family:var(--fb);font-size:12px;font-weight:700;flex-shrink:0}
-.rc-name{font-family:var(--fb);font-size:14px;font-weight:700;color:var(--blk)}
-.rc-src{font-family:var(--fb);font-size:12px;color:var(--muted)}
-.gbadge{display:flex;align-items:center;gap:10px;justify-content:center;font-family:var(--fb);font-size:15px;font-weight:600;color:var(--ink)}
-.gg{width:28px;height:28px;background:#4285f4;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0}
-
-/* CTA BAND */
-.sec-cta{background:var(--g);padding:72px 0}
-.cta-h{font-family:var(--fh);font-size:clamp(24px,3.2vw,38px);font-weight:700;color:var(--wht);margin-bottom:12px;letter-spacing:-.01em}
-.cta-p{font-family:var(--fb);font-size:17px;font-weight:400;color:rgba(255,255,255,.88);margin-bottom:32px;max-width:490px;margin-left:auto;margin-right:auto;line-height:1.7}
-.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn-w{display:inline-block;background:var(--wht);color:var(--gd);padding:14px 30px;border-radius:var(--r);font-family:var(--fb);font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .15s}
-.btn-w:hover{background:var(--gl);transform:translateY(-1px);text-decoration:none}
-.btn-wg{display:inline-block;background:transparent;color:var(--wht);padding:14px 24px;border-radius:var(--r);font-family:var(--fb);font-size:13px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;border:1.5px solid rgba(255,255,255,.4);transition:border-color .2s}
-.btn-wg:hover{border-color:var(--wht);text-decoration:none}
-
-/* FOOTER */
-.site-footer{background:#111312;color:#9aa09a;padding:64px 0 0;border-top:3px solid var(--g)}
-.fg-grid{display:grid;grid-template-columns:1.9fr 1fr 1fr 1.15fr;gap:48px;margin-bottom:48px}
-.fg-brand{display:inline-flex;align-items:center;gap:13px;text-decoration:none;margin-bottom:18px}
-.fg-mono{width:50px;height:50px;border-radius:9px;background:var(--g);color:#fff;font-family:var(--fb);font-weight:800;font-size:22px;letter-spacing:.01em;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 5px 16px rgba(58,158,73,.4)}
-.fg-word{font-family:var(--fh);font-weight:700;font-size:20px;line-height:1.05;color:#fff;letter-spacing:.005em}
-.fg-desc{font-family:var(--fb);font-size:14px;color:#949a94;line-height:1.74;max-width:285px}
-.fc h4{font-family:var(--fb);font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#fff;margin-bottom:17px}
-.fc ul{list-style:none;display:flex;flex-direction:column;gap:11px}
-.fc ul li a{font-family:var(--fb);font-size:14px;color:#b6bbb6;text-decoration:none;transition:color .18s}
-.fc ul li a:hover{color:var(--g)}
-.fc-c{display:flex;flex-direction:column;gap:12px}
-.fc-c a,.fc-c span{font-family:var(--fb);font-size:14px;color:#b6bbb6;text-decoration:none;line-height:1.6}
-.fc-c a:hover{color:var(--g)}
-.f-bottom{border-top:1px solid rgba(255,255,255,.09);padding:22px 0;display:flex;justify-content:space-between;align-items:center;font-family:var(--fb);font-size:13px;color:#7e847e;flex-wrap:wrap;gap:8px}
-.f-bottom a{color:#9aa09a;text-decoration:none;transition:color .18s}.f-bottom a:hover{color:var(--g)}
-
-/* CONTENT */
-.content-sec{padding:72px 0}
-.prose h3{font-family:var(--fh);font-size:22px;font-weight:700;color:var(--blk);margin-bottom:10px;margin-top:28px}
-.prose h3:first-child{margin-top:0}
-.prose p{font-family:var(--fb);font-size:15.5px;color:var(--body);line-height:1.75;margin-bottom:14px}
-.prose ul{padding-left:20px;margin-bottom:14px}
-.prose ul li{font-family:var(--fb);font-size:15.5px;color:var(--body);line-height:1.7;margin-bottom:6px}
-.prose a{color:var(--g);font-weight:600;text-decoration:none}
-.prose a:hover{text-decoration:underline}
-.info-p{background:var(--blk);border-radius:var(--rl);padding:30px}
-.info-p h3{font-family:var(--fh);font-size:19px;color:var(--wht);margin-bottom:14px}
-.info-p ul{list-style:none;display:flex;flex-direction:column;gap:9px}
-.info-p li{font-family:var(--fb);font-size:14px;color:#999;padding-left:20px;position:relative}
-.info-p li::before{content:'\2713';position:absolute;left:0;color:var(--g);font-weight:700;font-size:12px;top:2px}
-.faq-wrap{display:flex;flex-direction:column}
-.faq-it{border-bottom:1.5px solid var(--bdr);padding:18px 0}
-.faq-q{font-family:var(--fh);font-size:17px;font-weight:700;color:var(--blk);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px}
-.faq-q::after{content:'+';font-family:var(--fb);font-size:22px;font-weight:300;color:var(--g);flex-shrink:0;transition:transform .2s}
-.faq-a{font-family:var(--fb);font-size:15px;color:var(--body);line-height:1.72}
-.faq-it.open .faq-q::after{content:'\2212'}
-
-.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:36px}
-.tc{background:var(--wht);border:1.5px solid var(--bdr);border-radius:var(--rl);padding:28px 22px;text-align:center;transition:box-shadow .2s,transform .2s}
-.tc:hover{box-shadow:var(--shl);transform:translateY(-3px)}
-.tav{width:64px;height:64px;border-radius:50%;background:var(--gl);color:var(--gd);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:23px;font-weight:700;margin:0 auto 14px}
-.tn{font-family:var(--fh);font-size:18px;font-weight:700;color:var(--blk);margin-bottom:4px}
-.tt{font-family:var(--fb);font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g);margin-bottom:10px}
-.tb{font-family:var(--fb);font-size:13.5px;color:var(--body);line-height:1.62}
-.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px}
-.bc{background:var(--wht);border:1.5px solid var(--bdr);border-radius:var(--rl);overflow:hidden;transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column}
-.bc:hover{box-shadow:var(--shl);transform:translateY(-4px)}
-.bc-img{height:168px;background:var(--gl);display:flex;align-items:center;justify-content:center;font-size:44px}
-.bc-body{padding:22px 20px;flex:1;display:flex;flex-direction:column}
-.bc-cat{font-family:var(--fb);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g);margin-bottom:8px}
-.bc h3{font-family:var(--fh);font-size:18px;font-weight:700;color:var(--blk);margin-bottom:9px;line-height:1.25}
-.bc p{font-family:var(--fb);font-size:14px;color:var(--body);line-height:1.62;margin-bottom:14px;flex:1}
-.bc-foot{display:flex;justify-content:space-between;align-items:center;font-family:var(--fb);font-size:12px;color:var(--muted)}
-.bc-rl{font-family:var(--fb);font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--g);text-decoration:none}
-.bc-rl:hover{text-decoration:underline}
-.art-hero{background:var(--blk);padding:54px 0 60px;border-bottom:3px solid var(--g);position:relative;overflow:hidden}
-.art-hero::before{content:'';position:absolute;right:-5%;top:-20%;width:450px;height:450px;border-radius:50%;background:radial-gradient(circle,rgba(58,158,73,.08) 0%,transparent 60%)}
-.art-body{max-width:780px;margin:0 auto;padding:58px 28px}
-.art-body h2{font-family:var(--fh);font-size:27px;font-weight:700;color:var(--blk);margin:34px 0 11px}
-.art-body h3{font-family:var(--fh);font-size:22px;font-weight:700;color:var(--blk);margin:24px 0 9px}
-.art-body p{font-family:var(--fb);font-size:15.5px;color:var(--body);line-height:1.78;margin-bottom:17px}
-.art-body ul{padding-left:20px;margin-bottom:17px}
-.art-body li{font-family:var(--fb);font-size:15.5px;color:var(--body);line-height:1.72;margin-bottom:6px}
-.art-body a{color:var(--g);font-weight:600;text-decoration:none}.art-body a:hover{text-decoration:underline}
-.art-body strong{font-weight:700;color:var(--blk)}
-.art-bc{font-family:var(--fb);font-size:13px;color:#888;margin-bottom:20px}.art-bc a{color:var(--g);font-weight:600;text-decoration:none}
-.art-meta{font-family:var(--fb);font-size:13px;color:var(--muted);margin-top:10px}
-.art-cta{background:var(--gl);border:1.5px solid rgba(58,158,73,.2);border-radius:var(--rl);padding:28px;margin:34px 0;text-align:center}
-.art-cta h4{font-family:var(--fh);font-size:19px;font-weight:700;color:var(--blk);margin-bottom:8px}
-.art-cta p{font-family:var(--fb);font-size:14.5px;color:var(--body);margin-bottom:16px}
-.rel-sec{background:var(--light);padding:52px 0}
-.rel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:26px}
-.rel-card{background:var(--wht);border:1.5px solid var(--bdr);border-radius:var(--rl);padding:18px;text-decoration:none;display:block;transition:box-shadow .2s,transform .2s}
-.rel-card:hover{box-shadow:var(--shm);transform:translateY(-2px)}
-.rel-cat{font-family:var(--fb);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g)}
-.rel-card h4{font-family:var(--fh);font-size:15px;font-weight:700;color:var(--blk);margin-top:5px;line-height:1.3}
-.form-card{background:var(--wht);border:1.5px solid var(--bdr);border-radius:var(--rl);padding:32px;box-shadow:var(--sh)}
-.form-h{font-family:var(--fh);font-size:21px;font-weight:700;color:var(--blk);margin-bottom:20px}
-.fg,.fr2 .fg{margin-bottom:16px}
-.fg label{display:block;font-family:var(--fb);font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);margin-bottom:5px}
-.fg input,.fg select,.fg textarea{width:100%;padding:11px 13px;border:1.5px solid var(--bdr);border-radius:var(--r);font-family:var(--fb);font-size:14.5px;color:var(--ink);background:var(--wht);transition:border-color .2s,box-shadow .2s;outline:none}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--g);box-shadow:0 0 0 3px rgba(58,158,73,.1)}
-.fg textarea{resize:vertical;min-height:108px}
-.fsub{width:100%;background:var(--g);color:var(--wht);border:none;padding:14px;border-radius:var(--r);font-family:var(--fb);font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;cursor:pointer;transition:background .2s}
-.fsub:hover{background:var(--gd)}
-.fr2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.cd-row{display:flex;gap:13px;align-items:flex-start;margin-bottom:20px}
-.cd-ico{width:40px;height:40px;background:var(--gl);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.cd-lbl{font-family:var(--fb);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
-.cd-val{font-family:var(--fb);font-size:15px;font-weight:500;color:var(--ink)}
-.cd-val a{color:var(--g);font-weight:600;text-decoration:none}.cd-val a:hover{text-decoration:underline}
-
-@media(max-width:800px){
-  section,.content-sec{padding:52px 0}
-  .split{grid-template-columns:1fr;gap:30px}
-  .fg-grid{grid-template-columns:1fr 1fr;gap:28px}
-  .fr2{grid-template-columns:1fr}
-  .hero-stats{grid-template-columns:repeat(2,1fr)}
-  .hero-stats-bar .hero-stats{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:860px){
-  .hero-inner{grid-template-columns:1fr}
-  .hero-photo-col{display:none}
-  .hero-content-col{padding:64px 0}
-}
-
-/* ===== EXPANDED HOME SECTIONS ===== */
-.trust-strip{background:var(--wht);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:24px 0}
-.trust-strip .container{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap}
-.trust-item{display:flex;align-items:center;gap:10px;font-family:var(--fb);font-size:13.5px;font-weight:600;color:#444}
-.trust-badge-qb{display:flex;align-items:center;gap:8px;background:#2ca01c;color:#fff;border-radius:6px;padding:8px 14px;font-family:var(--fb);font-weight:800;font-size:12px;letter-spacing:.02em}
-.trust-badge-qb .qb-inner{display:flex;flex-direction:column;line-height:1.1}
-.trust-badge-qb .qb-t{font-size:9px;font-weight:600;letter-spacing:.05em;opacity:.88;text-transform:uppercase}
-.trust-badge-qb .qb-b{font-size:12px;font-weight:800;letter-spacing:.01em}
-.trust-badge-qb .qb-elite{background:#fff;color:#2ca01c;font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border-radius:3px;padding:2px 6px;margin-top:3px;display:inline-block}
-.trust-badge-cpa{display:flex;align-items:center;gap:9px}
-.trust-badge-cpa .cpa-mark{font-family:var(--fh);font-size:26px;font-weight:800;color:#005baa;line-height:1;letter-spacing:-.02em}
-.trust-badge-cpa .cpa-text{font-family:var(--fb);font-size:9.5px;font-weight:700;color:#005baa;letter-spacing:.08em;text-transform:uppercase;line-height:1.3;max-width:90px}
-.trust-divider{width:1px;height:34px;background:var(--bdr)}
-.trust-g{display:flex;align-items:center;gap:7px}
-.trust-g .gg{width:24px;height:24px;font-size:12px}
-.sec-center{max-width:680px;margin:0 auto 46px;text-align:center}
-.sec-center .sec-lead{margin-left:auto;margin-right:auto;margin-bottom:0}
-
-/* Pain points */
-.pain{background:var(--light)}
-.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:pain}
-.pain-card{background:var(--wht);border:1.5px solid var(--bdr);border-radius:var(--rl);padding:28px 24px;transition:box-shadow .2s,transform .2s;counter-increment:pain}
-.pain-card::before{content:counter(pain,decimal-leading-zero);font-family:var(--fh);font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.1em;display:block;margin-bottom:12px}
-.pain-card:hover{box-shadow:var(--shm);transform:translateY(-3px)}
-.pain-card h4{font-family:var(--fh);font-size:17px;font-weight:700;color:var(--blk);margin-bottom:7px}
-.pain-card p{font-family:var(--fb);font-size:14px;color:var(--body);line-height:1.6}
-.pain-bridge{text-align:center;margin-top:40px}
-.pain-bridge p{font-family:var(--fh);font-size:clamp(19px,2.5vw,25px);font-weight:600;font-style:italic;color:var(--blk);max-width:680px;margin:0 auto 22px;line-height:1.4}
-.pain-bridge .acc{color:var(--g);font-style:normal}
-
-/* Process / How it works */
-.process{background:var(--light)}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:26px;margin-top:48px}
-.step{position:relative;text-align:center;padding:0 10px}
-.step-num{width:62px;height:62px;border-radius:50%;background:var(--wht);border:2px solid var(--g);color:var(--g);font-family:var(--fh);font-size:24px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;position:relative;z-index:2;box-shadow:0 4px 14px rgba(58,158,73,.18)}
-.step h4{font-family:var(--fh);font-size:18px;font-weight:700;color:var(--blk);margin-bottom:8px}
-.step p{font-family:var(--fb);font-size:14px;color:var(--body);line-height:1.6}
-.steps .step:not(:last-child)::after{content:'';position:absolute;top:31px;left:62%;width:76%;height:2px;background:repeating-linear-gradient(90deg,var(--gm) 0 7px,transparent 7px 14px);z-index:1}
-@media(max-width:760px){.steps .step:not(:last-child)::after{display:none}}
-
-/* Full-bleed image band */
-.imgband{position:relative;padding:96px 0;background:#0c2912;overflow:hidden}
-.imgband-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.30;z-index:0}
-.imgband::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,rgba(12,41,18,.95) 0%,rgba(44,122,56,.80) 100%);z-index:1}
-.imgband .container{position:relative;z-index:2;text-align:center}
-.imgband .eyebrow{color:#9be3a8}
-.imgband h2{font-family:var(--fh);font-size:clamp(26px,3.4vw,40px);font-weight:700;color:#fff;letter-spacing:-.01em;margin-bottom:14px;max-width:780px;margin-left:auto;margin-right:auto;line-height:1.18}
-.imgband .lead{font-family:var(--fb);font-size:17px;color:rgba(255,255,255,.88);max-width:580px;margin:0 auto 38px;line-height:1.7}
-.imgband-stats{display:flex;justify-content:center;gap:54px;flex-wrap:wrap}
-.ibs .n{font-family:var(--fh);font-size:clamp(32px,4vw,44px);font-weight:800;color:#fff;line-height:1;display:block}
-.ibs .l{font-family:var(--fb);font-size:12.5px;color:rgba(255,255,255,.72);letter-spacing:.06em;text-transform:uppercase;margin-top:8px;display:block}
-
-/* Local Kitchener */
-.local{background:var(--light)}
-.local-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.local-list{display:flex;flex-direction:column;gap:16px;margin-top:24px}
-.local-li{display:flex;gap:13px;align-items:flex-start}
-.local-li .ic{width:28px;height:28px;border-radius:7px;background:rgba(58,158,73,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:0}
-.local-li .ic::after{content:"\2713";font-size:13px;font-weight:700;color:var(--gd);line-height:1}
-.local-li div{font-family:var(--fb);font-size:14.5px;color:var(--body);line-height:1.55}
-.local-li b{color:var(--blk);font-weight:700}
-.local-photo-col{border-radius:var(--rl);overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,.14)}
-.local-photo-col img{width:100%;height:480px;object-fit:cover;display:block}
-@media(max-width:860px){.local-grid{grid-template-columns:1fr;gap:32px}.local-photo-col img{height:300px}}
-
-/* Industries */
-.industries{background:var(--wht)}
-.ind-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:42px}
-.ind-card{background:var(--wht);border:1.5px solid var(--bdr);border-radius:var(--rl);padding:22px 18px;text-align:left;transition:border-color .2s,box-shadow .2s,transform .2s}
-.ind-card:hover{border-color:var(--g);box-shadow:var(--shm);transform:translateY(-3px)}
-.ind-ico{display:none}
-.ind-card h4{font-family:var(--fb);font-size:15px;font-weight:700;color:var(--blk);margin-bottom:5px}
-.ind-card p{font-family:var(--fb);font-size:12.5px;color:var(--muted);line-height:1.5}
-
-/* Home FAQ */
-.faq-sec{background:var(--wht)}
-.faq-narrow{max-width:780px;margin:0 auto}
-@media(max-width:500px){.fg-grid{grid-template-columns:1fr}.hero{padding:56px 0 64px}}
-
-/* ── QUALITY PASS ── */
-h1,h2,h3,.sh2,.cta-h,.page-hero h1,.art-body h2,.art-body h3,.faq-q{text-wrap:balance}
-.sec-lead,.prose p,.art-body p,.ph-lead,.hero-sub{text-wrap:pretty}
-[data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
-[data-reveal].vis{opacity:1;transform:none}
-[data-delay="1"]{transition-delay:.08s}[data-delay="2"]{transition-delay:.16s}[data-delay="3"]{transition-delay:.24s}[data-delay="4"]{transition-delay:.32s}[data-delay="5"]{transition-delay:.40s}[data-delay="6"]{transition-delay:.48s}
-@media(prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none}}
-:focus-visible{outline:2px solid var(--g);outline-offset:3px;border-radius:3px}
-
-
-/* Card stagger delays */
-.pain-card:nth-child(1){transition-delay:0s}.pain-card:nth-child(2){transition-delay:.08s}.pain-card:nth-child(3){transition-delay:.16s}.pain-card:nth-child(4){transition-delay:.24s}.pain-card:nth-child(5){transition-delay:.32s}.pain-card:nth-child(6){transition-delay:.40s}
-.svc-card:nth-child(1){transition-delay:0s}.svc-card:nth-child(2){transition-delay:.08s}.svc-card:nth-child(3){transition-delay:.16s}.svc-card:nth-child(4){transition-delay:.24s}.svc-card:nth-child(5){transition-delay:.32s}.svc-card:nth-child(6){transition-delay:.40s}
-.ind-card:nth-child(1){transition-delay:0s}.ind-card:nth-child(2){transition-delay:.07s}.ind-card:nth-child(3){transition-delay:.14s}.ind-card:nth-child(4){transition-delay:.21s}.ind-card:nth-child(5){transition-delay:.28s}.ind-card:nth-child(6){transition-delay:.35s}.ind-card:nth-child(7){transition-delay:.42s}.ind-card:nth-child(8){transition-delay:.49s}
-.rc:nth-child(1){transition-delay:0s}.rc:nth-child(2){transition-delay:.08s}.rc:nth-child(3){transition-delay:.16s}.rc:nth-child(4){transition-delay:.24s}.rc:nth-child(5){transition-delay:.32s}.rc:nth-child(6){transition-delay:.40s}
-.step:nth-child(1){transition-delay:0s}.step:nth-child(2){transition-delay:.1s}.step:nth-child(3){transition-delay:.2s}.step:nth-child(4){transition-delay:.3s}
-
-
-/* ── MOTION PASS (emil-design-eng) ── */
-:root{--eo:cubic-bezier(.23,1,.32,1)}
-.btn-gp,.btn-dk,.btn-p,.btn-gp-sm,.btn-w,.fsub,.nav-cta-btn{transition:background .2s,transform .16s var(--eo),box-shadow .2s}
-.btn-ol,.btn-gh,.btn-wg{transition:background .2s,color .2s,border-color .2s,transform .16s var(--eo)}
-:where(.btn-gp,.btn-dk,.btn-ol,.btn-p,.btn-gp-sm,.btn-gh,.btn-w,.btn-wg,.nav-cta-btn,.fsub):active{transform:scale(.97)}
-@media(hover:none){
-  .svc-card:hover,.pain-card:hover,.ind-card:hover,.tc:hover,.bc:hover,.rel-card:hover,.rc:hover{transform:none}
-  .svc-card:hover .svc-photo{transform:none}
-}
-.faq-a{display:block;max-height:0;overflow:hidden;padding-top:0;transition:max-height .35s var(--eo),padding-top .35s var(--eo)}
-.faq-it.open .faq-a{max-height:340px;padding-top:10px}
-.faq-q::after{transition:transform .25s var(--eo)}
-.faq-it.open .faq-q::after{transform:rotate(180deg)}
-@media(prefers-reduced-motion:reduce){.faq-a{transition:none}.faq-q::after{transition:none}}
-
-
-/* Hero load-in cascade */
-@keyframes heroUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.hero-content-col>*{opacity:0;animation:heroUp .7s var(--eo) forwards}
-.hero-content-col>.h-badge{animation-delay:.05s}
-.hero-content-col>h1{animation-delay:.15s}
-.hero-content-col>.hero-sub{animation-delay:.27s}
-.hero-content-col>.hero-acts{animation-delay:.39s}
-.hero-content-col>.hero-trust{animation-delay:.51s}
-.hero-photo-col{opacity:0;animation:heroUp .9s var(--eo) .2s forwards}
-@media(prefers-reduced-motion:reduce){.hero-content-col>*,.hero-photo-col{opacity:1;animation:none}}
-
-
-/* ── ENHANCE PASS ── */
-@keyframes pageIn{from{opacity:0}to{opacity:1}}
-body{animation:pageIn .45s ease-out}
-.hdr-inner{transition:height .25s var(--eo)}
-.logo-wrap img{transition:height .25s var(--eo)}
-.site-header.compact .hdr-inner{height:58px}
-.site-header.compact .logo-wrap img{height:32px}
-.site-header.compact .main-nav>li>a,.site-header.compact .main-nav>li>.dt{height:58px;line-height:58px}
-.mcta{position:fixed;left:0;right:0;bottom:0;z-index:950;display:none;grid-template-columns:1fr 1fr;background:var(--wht);border-top:1.5px solid var(--bdr);box-shadow:0 -4px 20px rgba(0,0,0,.1);transform:translateY(102%);transition:transform .35s var(--eo);padding-bottom:env(safe-area-inset-bottom)}
-.mcta.show{transform:none}
-.mcta a{display:flex;align-items:center;justify-content:center;gap:7px;padding:15px 8px;font-family:var(--fb);font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;text-decoration:none}
-.mcta-call{color:var(--ink)}
-.mcta-book{background:var(--g);color:#fff}
-@media(max-width:860px){.mcta{display:grid}}
-[data-clip]{opacity:0;transform:translateY(22px)}
-[data-clip].vis{opacity:1;transform:translateY(0);transition:opacity .75s var(--eo),transform .75s var(--eo)}
-@keyframes kb{from{transform:scale(1)}to{transform:scale(1.08)}}
-.imgband.vis .imgband-bg,.svc-imgband.vis .svc-imgband-bg{animation:kb 18s linear infinite alternate}
-.svc-lnk::after{content:'\2192';display:inline-block;margin-left:6px;transition:transform .2s var(--eo)}
-.svc-card:hover .svc-lnk::after{transform:translateX(4px)}
-.ostat{display:inline-flex;align-items:center;gap:6px;font-weight:700}
-.ostat::before{content:'';width:7px;height:7px;border-radius:50%;background:currentColor;flex-shrink:0}
-.o-open{color:#9be3a8}
-.o-closed{color:#cfd6cf}
-@supports (animation-timeline: scroll()) {
-  .read-progress{position:fixed;top:0;left:0;width:100%;height:3px;background:var(--g);transform-origin:0 50%;transform:scaleX(0);animation:rpg linear;animation-timeline:scroll();z-index:1001}
-  @keyframes rpg{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-}
-@media(prefers-reduced-motion:reduce){
-  body{animation:none}
-  .mcta,[data-clip].vis{transition:none}
-  [data-clip]{opacity:1;transform:none}
-  .imgband.vis .imgband-bg,.svc-imgband.vis .svc-imgband-bg{animation:none}
-  .read-progress{animation:none;transform:scaleX(0)}
-}
-
-</style>
+<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-<div class="topbar"><div class="container">
-    <span>142 Dubrick Crescent, Kitchener, ON N2E 4G3</span>
-    <div style="display:flex;gap:20px;align-items:center">
-      <span id="open-now"></span>
-      <a href="tel:6475649666">(647) 564-9666</a>
-      <a href="mailto:contact@accountantkitchener.ca">contact@accountantkitchener.ca</a>
-    </div>
-  </div></div>
 <header class="site-header">
   <div class="container"><div class="hdr-inner">
     <a href="index.html" class="logo-wrap">
@@ -615,169 +27,213 @@ body{animation:pageIn .45s ease-out}
     </button>
     <nav class="nav-wrap">
       <ul class="main-nav">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="tax-filing-kitchener.html">File Taxes</a></li>
-        <li><a href="cpa-kitchener.html">CPA</a></li>
-        <li><a href="personal-tax-accountant-kitchener.html">Personal Tax</a></li>
-        <li><a href="small-business-tax-accountant-kitchener.html">Small Business</a></li>
-        <li><a href="bookkeeping-services-kitchener.html">Bookkeeping</a></li>
         <li>
-          <span class="dt">Other Services</span>
+          <span class="dt" tabindex="0">Tax Services</span>
           <div class="dd">
-            <a href="payroll-services-kitchener.html">Payroll Services</a>
-            <a href="hst-filing-kitchener.html">HST Filing</a>
+            <a href="tax-filing-kitchener.html">Tax Filing</a>
+            <a href="personal-tax-accountant-kitchener.html">Personal Tax</a>
+            <a href="small-business-tax-accountant-kitchener.html">Small Business Tax</a>
+            <a href="cpa-kitchener.html">CPA Services</a>
             <a href="tax-consulting-kitchener.html">Tax Consulting</a>
           </div>
         </li>
+        <li>
+          <span class="dt" tabindex="0">Accounting</span>
+          <div class="dd">
+            <a href="bookkeeping-services-kitchener.html">Bookkeeping</a>
+            <a href="payroll-services-kitchener.html">Payroll Services</a>
+            <a href="hst-filing-kitchener.html">HST Filing</a>
+          </div>
+        </li>
         <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
-      <a href="contact.html" class="nav-cta-btn">Contact Us</a>
+      <a href="tel:6475649666" class="hdr-phone">
+        <span class="hp-num">(647) 564-9666</span>
+        <span class="hp-lbl"><span id="open-now">Mon–Sat 10am–9pm</span></span>
+      </a>
     </nav>
   </div></div>
 </header>
 <main>
+
 <section class="hero">
   <div class="container">
     <div class="hero-inner">
-      <div class="hero-content-col">
-        <div class="h-badge">Kitchener, Ontario</div>
-        <h1>Trusted Accountant<br>in <span class="acc">Kitchener</span></h1>
-        <p class="hero-sub">Ibtahaj Hashmi, CPA, FCCA leads our Kitchener practice. Personal tax, small business accounting, bookkeeping, and payroll — handled with 18+ years of expertise.</p>
+      <div class="hero-content">
+        <span class="kicker">CPA-led accounting firm &middot; Kitchener, Ontario</span>
+        <h1 class="h-display">Taxes and accounting, handled by a CPA who actually calls you back.</h1>
+        <p class="lead">Personal tax, small business accounting, bookkeeping, payroll, and HST filing for Kitchener-Waterloo — led by Ibtahaj Hashmi, CPA, FCCA, with 18+ years of experience.</p>
         <div class="hero-acts">
-          <a href="contact.html" class="btn-gp">Book a Free Consultation</a>
-          <a href="tel:6475649666" class="btn-dk">Call (647) 564-9666</a>
+          <a href="contact.html" class="btn btn-primary">Book a Free Consultation <span class="arr">&rarr;</span></a>
+          <a href="tel:6475649666" class="btn btn-ghost">Call (647) 564-9666</a>
         </div>
-        <div class="hero-trust">
-          <span class="ht-item"><span class="ht-check">&#10003;</span> CPA Canada Member Firm</span>
-          <span class="ht-item"><span class="ht-check">&#10003;</span> 5-Star Google Reviews</span>
-          <span class="ht-item"><span class="ht-check">&#10003;</span> 6+ Years Serving Kitchener</span>
+        <div class="hero-proof">
+          <div class="hp-item"><strong><span data-count>500+</span></strong> returns filed</div>
+          <div class="hp-item"><strong><span data-count>98%</span></strong> client retention</div>
+          <div class="hp-item"><strong><span data-count>5.0</span></strong> Google rating</div>
+          <div class="hp-item"><strong><span data-count>18+</span></strong> years of experience</div>
         </div>
       </div>
-      <div class="hero-photo-col">
+      <div class="hero-photo">
         <img
           src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=75"
           alt="Professional accountant consultation in Kitchener"
           loading="eager"
-          onerror="this.parentElement.style.background='linear-gradient(135deg,#2C7A38,#3A9E49)'"
+          onerror="this.style.background='linear-gradient(135deg,#0E2415,#2C7A38)'"
         >
-      </div>
-    </div>
-  </div>
-  <div class="hero-stats-bar">
-    <div class="container">
-      <div class="hero-stats">
-        <div class="sb"><span class="sn">6+</span><span class="sl">Years in Kitchener</span></div>
-        <div class="sb"><span class="sn">98%</span><span class="sl">Client Retention</span></div>
-        <div class="sb"><span class="sn">5.0</span><span class="sl">Google Rating</span></div>
-        <div class="sb"><span class="sn">500+</span><span class="sl">Returns Filed</span></div>
+        <div class="hero-card">
+          <div class="hc-av">IH</div>
+          <div>
+            <div class="hc-name">Ibtahaj Hashmi, CPA, FCCA</div>
+            <div class="hc-role">Director, Tax &amp; Business Advisory</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="trust-strip">
+<div class="assoc">
   <div class="container">
-    <div class="trust-badge-cpa">
-      <span class="cpa-mark">CPA</span>
-      <span class="cpa-text">Chartered Professional Accountants</span>
+    <div class="assoc-inner">
+      <span class="assoc-label">Recognized by</span>
+      <!-- ASSOC-LOGOS: replace badges below with <img class="assoc-logo"> tags when association logo assets are added -->
+      <div class="assoc-badge">CPA Canada Member Firm</div>
+      <div class="assoc-badge">CPA Ontario</div>
+      <div class="assoc-badge">QuickBooks ProAdvisor Elite</div>
+      <div class="assoc-badge">ACCA (UK) Fellow</div>
+      <div class="assoc-badge"><span class="stars" style="color:#F5A623">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0 on Google</div>
     </div>
-    <div class="trust-divider"></div>
-    <div class="trust-badge-qb">
-      <div>
-        <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="white"/><text x="20" y="26" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="18" font-weight="900" fill="#2ca01c">qb</text></svg>
-      </div>
-      <div class="qb-inner">
-        <span class="qb-t">QuickBooks ProAdvisor</span>
-        <span class="qb-elite">Elite</span>
-      </div>
-    </div>
-    <div class="trust-divider"></div>
-    <div class="trust-item">&#9733;&#9733;&#9733;&#9733;&#9733; &nbsp;5.0 on Google</div>
-    <div class="trust-divider"></div>
-    <div class="trust-item">&#128205; Kitchener, ON &nbsp;&middot;&nbsp; Mon to Sat 10am to 9pm</div>
   </div>
 </div>
 
-<section class="pain" data-reveal>
+<section data-reveal>
   <div class="container">
-    <div class="sec-center">
-      <p style="font-family:var(--fh);font-size:clamp(15px,1.6vw,18px);font-weight:600;font-style:italic;color:var(--body);margin-bottom:14px;display:block">Sound familiar?</p>
-      <h2 class="sh2">The Tax and Accounting Headaches<br>Kitchener Owners Know Too Well</h2>
-      <p class="sec-lead">If any of these keep you up at night, you are not alone. They are exactly the problems we solve every day for clients across Kitchener and Waterloo.</p>
+    <div class="sec-head">
+      <h2 class="h-sec">Everything your finances need, under one roof</h2>
+      <p class="lead">From a simple T1 return to full corporate compliance, our chartered professional accountants handle it — accurately, on time, and with a clear upfront quote.</p>
     </div>
-    <div class="pain-grid">
-      <div class="pain-card" data-reveal><h4>Dreading Tax Season</h4><p>Shoeboxes of receipts, missed slips, and a looming CRA deadline you keep pushing off until the last stressful week.</p></div>
-      <div class="pain-card" data-reveal><h4>Overpaying the CRA</h4><p>No idea which deductions or credits you qualify for, so you quietly hand the government more than you legally owe.</p></div>
-      <div class="pain-card" data-reveal><h4>Bookkeeping You Never Catch Up On</h4><p>Running a Kitchener business leaves no time for reconciliations, HST tracking, and payroll that always falls behind.</p></div>
-      <div class="pain-card" data-reveal><h4>A CRA Letter in the Mailbox</h4><p>A review or reassessment notice arrives and you have no one in your corner who actually understands what it means.</p></div>
-      <div class="pain-card" data-reveal><h4>An Accountant You Never Hear From</h4><p>You only get a call once a year at filing time, with no proactive advice and no answer when questions come up.</p></div>
-      <div class="pain-card" data-reveal><h4>Unsure How to Structure Your Business</h4><p>Sole proprietor or incorporate? Salary or dividends? Costly decisions made without professional guidance.</p></div>
+    <div class="svc-list">
+      <a href="tax-filing-kitchener.html" class="svc-row" data-reveal>
+        <span class="svc-num">01</span>
+        <h3>Tax Filing</h3>
+        <p>Personal and corporate returns prepared and filed by a CPA — with every deduction you're entitled to.</p>
+        <span class="svc-go">&rarr;</span>
+      </a>
+      <a href="personal-tax-accountant-kitchener.html" class="svc-row" data-reveal>
+        <span class="svc-num">02</span>
+        <h3>Personal Tax</h3>
+        <p>T1 returns, rental income, investments, RRSP planning, and CRA correspondence for individuals and families.</p>
+        <span class="svc-go">&rarr;</span>
+      </a>
+      <a href="small-business-tax-accountant-kitchener.html" class="svc-row" data-reveal>
+        <span class="svc-num">03</span>
+        <h3>Small Business Tax</h3>
+        <p>T2 corporate returns, incorporation advice, and salary-vs-dividend planning for owner-operators.</p>
+        <span class="svc-go">&rarr;</span>
+      </a>
+      <a href="bookkeeping-services-kitchener.html" class="svc-row" data-reveal>
+        <span class="svc-num">04</span>
+        <h3>Bookkeeping</h3>
+        <p>Monthly reconciliations and clean, audit-ready books in QuickBooks — so you always know where you stand.</p>
+        <span class="svc-go">&rarr;</span>
+      </a>
+      <a href="payroll-services-kitchener.html" class="svc-row" data-reveal>
+        <span class="svc-num">05</span>
+        <h3>Payroll</h3>
+        <p>Payroll runs, source deductions, T4s, and ROEs — compliant and on schedule, every pay period.</p>
+        <span class="svc-go">&rarr;</span>
+      </a>
+      <a href="hst-filing-kitchener.html" class="svc-row" data-reveal>
+        <span class="svc-num">06</span>
+        <h3>HST Filing</h3>
+        <p>HST/GST registration, input tax credits, and filings that keep you compliant and maximize what you recover.</p>
+        <span class="svc-go">&rarr;</span>
+      </a>
+      <a href="tax-consulting-kitchener.html" class="svc-row" data-reveal>
+        <span class="svc-num">07</span>
+        <h3>Tax Consulting &amp; Advisory</h3>
+        <p>Proactive planning, CRA audit support, and structure advice from a CPA who knows your whole picture.</p>
+        <span class="svc-go">&rarr;</span>
+      </a>
     </div>
-    <div class="pain-bridge">
-      <p>You should not have to choose between running your life or business and staying on top of your finances. <span class="acc">That is our job.</span></p>
+  </div>
+</section>
+
+<section class="bg-stone" data-reveal>
+  <div class="container">
+    <div class="split">
+      <div>
+        <h2 class="h-sec">Sound familiar?</h2>
+        <p class="lead">These are the exact problems we solve every day for individuals and business owners across Kitchener-Waterloo.</p>
+        <div class="checks">
+          <div class="check"><span><b>Dreading tax season</b> — shoeboxes of receipts, missed slips, and a CRA deadline you keep pushing off.</span></div>
+          <div class="check"><span><b>Overpaying the CRA</b> — no idea which deductions you qualify for, so you quietly hand over more than you owe.</span></div>
+          <div class="check"><span><b>Books you never catch up on</b> — reconciliations, HST tracking, and payroll that always fall behind.</span></div>
+          <div class="check"><span><b>A CRA letter in the mailbox</b> — a review or reassessment notice with no one in your corner.</span></div>
+          <div class="check"><span><b>An accountant you never hear from</b> — one call a year at filing time, and silence when questions come up.</span></div>
+          <div class="check"><span><b>Unsure how to structure your business</b> — incorporate or not? Salary or dividends? Costly guesses.</span></div>
+        </div>
+        <div style="margin-top:34px"><a href="contact.html" class="btn btn-forest">Get These Off Your Plate <span class="arr">&rarr;</span></a></div>
+      </div>
+      <div class="split-img" data-reveal>
+        <img
+          src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=72"
+          alt="Tax documents and calculator on an accountant's desk"
+          loading="lazy"
+        >
+      </div>
     </div>
   </div>
 </section>
 
 <section data-reveal>
   <div class="container">
-    <h2 class="sh2">Accounting and Tax Services<br>in <span class="acc">Kitchener</span></h2>
-    <p class="sec-lead">From personal tax returns to full-service bookkeeping, our chartered accountants in Kitchener handle every aspect of your financial compliance.</p>
-    <div class="svc-grid">
-      <a data-reveal href="tax-filing-kitchener.html" class="svc-card">
-        <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=70')"></div>
-        <div class="svc-label"><h3>Tax Filing Kitchener</h3><span class="svc-lnk">Learn More</span></div>
-      </a>
-      <a data-reveal href="personal-tax-accountant-kitchener.html" class="svc-card">
-        <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=70')"></div>
-        <div class="svc-label"><h3>Personal Tax Accountant</h3><span class="svc-lnk">Learn More</span></div>
-      </a>
-      <a data-reveal href="small-business-tax-accountant-kitchener.html" class="svc-card">
-        <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=70')"></div>
-        <div class="svc-label"><h3>Small Business Tax</h3><span class="svc-lnk">Learn More</span></div>
-      </a>
-      <a data-reveal href="bookkeeping-services-kitchener.html" class="svc-card">
-        <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=70')"></div>
-        <div class="svc-label"><h3>Bookkeeping Services</h3><span class="svc-lnk">Learn More</span></div>
-      </a>
-      <a data-reveal href="payroll-services-kitchener.html" class="svc-card">
-        <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=70')"></div>
-        <div class="svc-label"><h3>Payroll Services</h3><span class="svc-lnk">Learn More</span></div>
-      </a>
-      <a data-reveal href="hst-filing-kitchener.html" class="svc-card">
-        <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=70')"></div>
-        <div class="svc-label"><h3>HST Filing Kitchener</h3><span class="svc-lnk">Learn More</span></div>
-      </a>
+    <div class="sec-head center">
+      <h2 class="h-sec">Getting started is simple</h2>
+      <p class="lead">No confusing onboarding, no jargon — a clear professional process that gets your finances in order fast.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-step" data-reveal>
+        <div class="tl-dot"></div>
+        <span class="tl-k">Step 1</span>
+        <h3>Book a free call</h3>
+        <p>Tell us about your situation in a no-obligation consultation. We listen first and explain your options in plain language.</p>
+      </div>
+      <div class="tl-step" data-reveal data-delay="1">
+        <div class="tl-dot"></div>
+        <span class="tl-k">Step 2</span>
+        <h3>Get a clear plan and quote</h3>
+        <p>We review your documents and send a transparent, upfront quote — exactly what we'll do and what it costs.</p>
+      </div>
+      <div class="tl-step" data-reveal data-delay="2">
+        <div class="tl-dot"></div>
+        <span class="tl-k">Step 3</span>
+        <h3>We handle the rest, year-round</h3>
+        <p>Filing, bookkeeping, CRA correspondence, and proactive advice — accurate and on time, so you're never scrambling at deadline.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="process" data-reveal>
+<section class="cred-band" data-reveal>
   <div class="container">
-    <div class="sec-center">
-      <h2 class="sh2">Getting Started Is Simple</h2>
-      <p class="sec-lead">No confusing onboarding and no jargon. Just a clear, professional process designed to get your finances in order fast.</p>
-    </div>
-    <div class="steps">
-      <div class="step" data-reveal><div class="step-num">1</div><h4>Book a Free Call</h4><p>Tell us about your situation in a no-obligation consultation. We listen first and explain your options in plain language.</p></div>
-      <div class="step" data-reveal><div class="step-num">2</div><h4>Get a Clear Plan</h4><p>We review your documents and send a transparent, upfront quote with exactly what we will do and what it costs.</p></div>
-      <div class="step" data-reveal><div class="step-num">3</div><h4>We Handle the Work</h4><p>From filing to bookkeeping to CRA correspondence, our team takes care of it accurately and on time, every time.</p></div>
-      <div class="step" data-reveal><div class="step-num">4</div><h4>Stay Ahead Year-Round</h4><p>Ongoing advice and proactive planning so you are never scrambling at deadline and never overpaying again.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="imgband" data-reveal>
-  <div class="imgband-bg" style="background-image:url('https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=1600&q=70')"></div>
-  <div class="container">
-    <h2>A Local CPA Firm Built on Results,<br>Not Just Tax Returns</h2>
-    <p class="lead">Individuals, families, and growing businesses across the region rely on us for accurate, proactive, and genuinely personal accounting.</p>
-    <div class="imgband-stats">
-      <div class="ibs"><span class="n">6+</span><span class="l">Years in Kitchener</span></div>
-      <div class="ibs"><span class="n">500+</span><span class="l">Returns Filed</span></div>
-      <div class="ibs"><span class="n">98%</span><span class="l">Client Retention</span></div>
-      <div class="ibs"><span class="n">5.0</span><span class="l">Google Rating</span></div>
+    <div class="cred-inner">
+      <div>
+        <span class="kicker" style="color:#A5E0AF">Who you'll work with</span>
+        <h2 class="h-sec">Ibtahaj Hashmi, CPA, FCCA</h2>
+        <p>Director of Tax, Accounting and Business Advisory. A CPA Canada member and UK Fellow Chartered Certified Accountant with 18+ years across Canadian and international practice, and an Oxford and University of Salford alumnus. Based at 142 Dubrick Crescent, Kitchener — serving clients in person and virtually across Ontario since 2019.</p>
+        <div style="margin-top:30px"><a href="about.html" class="btn btn-ghost-w">Meet the Team <span class="arr">&rarr;</span></a></div>
+      </div>
+      <div class="cred-stats">
+        <div class="cst"><span class="n" data-count>18+</span><span class="l">Years of experience</span></div>
+        <div class="cst"><span class="n" data-count>500+</span><span class="l">Returns filed</span></div>
+        <div class="cst"><span class="n" data-count>98%</span><span class="l">Client retention</span></div>
+        <div class="cst"><span class="n" data-count>6+</span><span class="l">Years in Kitchener</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -785,128 +241,60 @@ body{animation:pageIn .45s ease-out}
 <section data-reveal>
   <div class="container">
     <div class="split">
-      <div>
-        <h2 class="sh2">Kitchener's <span class="acc">Professional</span><br>Accounting Firm</h2>
-        <p class="sec-lead">We combine the expertise of a large firm with the personal attention of a local Kitchener accountant.</p>
-        <div class="why-pts">
-          <div class="why-pt"><div class="why-ico">&#127891;</div><div><h4>Professional Accountants</h4><p>Led by Ibtahaj Hashmi, CPA, FCCA, a chartered professional accountant with 18+ years of experience across Canada and internationally.</p></div></div>
-          <div class="why-pt"><div class="why-ico">&#128205;</div><div><h4>Local Kitchener Office</h4><p>Based at 142 Dubrick Crescent, Kitchener. We serve clients in person and virtually throughout Ontario.</p></div></div>
-          <div class="why-pt"><div class="why-ico">&#128202;</div><div><h4>Transparent Pricing</h4><p>No surprise invoices. We quote upfront and deliver results that justify every dollar, from simple T1 returns to complex corporate structures.</p></div></div>
-          <div class="why-pt"><div class="why-ico">&#9889;</div><div><h4>Fast Turnaround</h4><p>Our team works efficiently to deliver timely filings, reports, and compliance documents. Deadlines are never missed.</p></div></div>
-        </div>
-      </div>
-      <div class="dp">
-        <h3>Ibtahaj Hashmi, CPA, FCCA</h3>
-        <p>Director, Tax, Accounting and Business Advisory. With over 18 years serving Canadian businesses, Ibtahaj brings international expertise to every Kitchener client engagement.</p>
-        <div class="cred-list">
-          <div class="cred-item"><span class="cdot"></span><strong>CPA Canada</strong> Member Firm</div>
-          <div class="cred-item"><span class="cdot"></span><strong>FCCA (UK)</strong> Fellow Chartered Accountant</div>
-          <div class="cred-item"><span class="cdot"></span>Oxford and University of Salford alumnus</div>
-          <div class="cred-item"><span class="cdot"></span>18+ years in accounting and tax advisory</div>
-          <div class="cred-item"><span class="cdot"></span>Serving Kitchener since 2019</div>
-        </div>
-        <div style="margin-top:24px"><a href="about.html" class="btn-ol">Meet the Team</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="local" data-reveal>
-  <div class="container">
-    <div class="local-grid">
-      <div>
-        <h2 class="sh2">An Accountant Who Knows<br><span class="acc">Kitchener-Waterloo</span></h2>
-        <p class="sec-lead">We are not a faceless national chain. We are based right here at 142 Dubrick Crescent, and we understand the businesses, trades, and families that make this region tick.</p>
-        <div class="local-list">
-          <div class="local-li"><span class="ic">&#9679;</span><div><b>Local presence, real relationships.</b> Meet us in person in Kitchener or work with us virtually anywhere in Ontario.</div></div>
-          <div class="local-li"><span class="ic">&#9679;</span><div><b>We know the local economy.</b> From Waterloo tech startups to Kitchener trades and real estate, we speak your industry.</div></div>
-          <div class="local-li"><span class="ic">&#9679;</span><div><b>Year-round access.</b> Open Monday to Saturday, with a team that answers when you call, not just at tax time.</div></div>
-          <div class="local-li"><span class="ic">&#9679;</span><div><b>CPA Canada member firm.</b> Professional standards and accountability behind every engagement.</div></div>
-        </div>
-        <div style="margin-top:30px"><a href="contact.html" class="btn-p">Book a Free Consultation</a></div>
-      </div>
-      <div class="local-photo-col" data-clip>
+      <div class="split-img" data-reveal>
         <img
           src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=75"
-          alt="Professional accountant in Kitchener meeting with a client"
+          alt="Accountant meeting with a client in Kitchener"
           loading="lazy"
-          onerror="this.parentElement.style.background='linear-gradient(135deg,#2C7A38,#3A9E49)'"
         >
+      </div>
+      <div>
+        <h2 class="h-sec">An accountant who knows Kitchener-Waterloo</h2>
+        <p class="lead">We're not a faceless national chain. We're based right here on Dubrick Crescent, and we understand the businesses, trades, and families that make this region tick.</p>
+        <div class="checks">
+          <div class="check"><span><b>Local presence, real relationships.</b> Meet in person in Kitchener or work with us virtually anywhere in Ontario.</span></div>
+          <div class="check"><span><b>We know the local economy.</b> From Waterloo tech startups to Kitchener trades and real estate, we speak your industry.</span></div>
+          <div class="check"><span><b>Year-round access.</b> Open Monday to Saturday, with a team that answers when you call — not just at tax time.</span></div>
+          <div class="check"><span><b>CPA Canada member firm.</b> Professional standards and accountability behind every engagement.</span></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="industries" data-reveal>
+<section class="bg-stone" data-reveal>
   <div class="container">
-    <div class="sec-center">
-      <h2 class="sh2">Trusted by Kitchener Individuals<br>and Industries</h2>
-      <p class="sec-lead">Whatever your situation, our chartered professional accountants tailor the right tax and accounting approach for you.</p>
+    <div class="rev-head">
+      <h2 class="h-sec" style="margin-bottom:0">What Kitchener clients say</h2>
+      <div class="gbadge"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span>5.0 / 5 on Google</span></div>
     </div>
-    <div class="ind-grid">
-      <div class="ind-card" data-reveal><span class="ind-ico">&#128106;</span><h4>Individuals &amp; Families</h4><p>Personal T1 returns and planning</p></div>
-      <div class="ind-card" data-reveal><span class="ind-ico">&#127959;</span><h4>Trades &amp; Contractors</h4><p>HST, expenses, and bookkeeping</p></div>
-      <div class="ind-card" data-reveal><span class="ind-ico">&#127968;</span><h4>Real Estate &amp; Realtors</h4><p>Commission income and incorporation</p></div>
-      <div class="ind-card" data-reveal><span class="ind-ico">&#128187;</span><h4>Tech &amp; Startups</h4><p>Corporate tax and SR&amp;ED guidance</p></div>
-      <div class="ind-card" data-reveal><span class="ind-ico">&#127869;</span><h4>Restaurants &amp; Retail</h4><p>Payroll, HST, and cash flow</p></div>
-      <div class="ind-card" data-reveal><span class="ind-ico">&#129658;</span><h4>Medical &amp; Professionals</h4><p>Professional corporations and tax</p></div>
-      <div class="ind-card" data-reveal><span class="ind-ico">&#128188;</span><h4>Self-Employed</h4><p>Sole proprietor returns and HST</p></div>
-      <div class="ind-card" data-reveal><span class="ind-ico">&#127891;</span><h4>Students &amp; Newcomers</h4><p>First returns and credits</p></div>
+    <div class="reviews-grid">
+      <div class="rc" data-reveal>
+        <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="rc-text">"Filing my personal taxes has always felt overwhelming, but the professionals here completely changed that. They were knowledgeable and made the whole process incredibly easy. Highly recommend."</p>
+        <div class="rc-foot"><div class="rc-av">MS</div><div><div class="rc-name">Muhammad Saad</div><div class="rc-src">Google Review</div></div></div>
+      </div>
+      <div class="rc" data-reveal data-delay="1">
+        <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="rc-text">"Top-notch services without charging an arm and a leg. As a small business owner and Realtor, I appreciate their affordability and the fact that they never compromise on quality. Hashmi became a trusted advisor for my business."</p>
+        <div class="rc-foot"><div class="rc-av">SR</div><div><div class="rc-name">Syed Rizvi</div><div class="rc-src">Google Review</div></div></div>
+      </div>
+      <div class="rc" data-reveal data-delay="2">
+        <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="rc-text">"Ibtehaj was professional, efficient, and very knowledgeable. He took the time to explain everything clearly and made the whole process smooth and stress-free. Highly recommend for anyone looking for reliable accounting services."</p>
+        <div class="rc-foot"><div class="rc-av">JC</div><div><div class="rc-name">Janet Campitelli-Montgomery</div><div class="rc-src">Google Review</div></div></div>
+      </div>
+    </div>
+    <div class="ta-c" style="margin-top:34px">
+      <a href="https://share.google/Pa9ECgfcJhgVurFEJ" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Read All Google Reviews</a>
     </div>
   </div>
 </section>
 
-<section class="sec-reviews bg-light" data-reveal>
-    <div class="container">
-      <h2 class="sh2">What Kitchener Clients Say</h2>
-      <div class="reviews-outer"><div class="reviews-grid"><div class="rc" data-reveal>
-          <div class="rc-stars"><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span></div>
-          <p class="rc-text">"Filing my personal taxes has always felt overwhelming, but the professionals here completely changed that. They were knowledgeable and made the whole process incredibly easy. Highly recommend."</p>
-          <div class="rc-foot">
-            <div class="rc-av">MS</div>
-            <div><div class="rc-name">Muhammad Saad</div><div class="rc-src">Google Review</div></div>
-          </div>
-        </div><div class="rc" data-reveal>
-          <div class="rc-stars"><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span></div>
-          <p class="rc-text">"Ibtehaj was professional, efficient, and very knowledgeable. He took the time to explain everything clearly and made the whole process smooth and stress-free. Highly recommend for anyone looking for reliable accounting services."</p>
-          <div class="rc-foot">
-            <div class="rc-av">JC</div>
-            <div><div class="rc-name">Janet Campitelli-Montgomery</div><div class="rc-src">Google Review</div></div>
-          </div>
-        </div><div class="rc" data-reveal>
-          <div class="rc-stars"><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span></div>
-          <p class="rc-text">"Extremely professional, knowledgeable, and reliable. They helped navigate both personal and business finances with great attention to detail. Their advice saved me time and money during tax season and beyond."</p>
-          <div class="rc-foot">
-            <div class="rc-av">CI</div>
-            <div><div class="rc-name">Chinaar Inc.</div><div class="rc-src">Google Review</div></div>
-          </div>
-        </div><div class="rc" data-reveal>
-          <div class="rc-stars"><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span></div>
-          <p class="rc-text">"Top-notch services without charging an arm and a leg. As a small business owner and Realtor, I appreciate their affordability and the fact that they never compromise on quality. Hashmi became a trusted advisor for my business."</p>
-          <div class="rc-foot">
-            <div class="rc-av">SR</div>
-            <div><div class="rc-name">Syed Rizvi</div><div class="rc-src">Google Review</div></div>
-          </div>
-        </div><div class="rc" data-reveal>
-          <div class="rc-stars"><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span></div>
-          <p class="rc-text">"As a student, filing taxes felt confusing and overwhelming, but the team made the entire process simple and stress-free. Incredibly patient and took the time to explain everything clearly. Highly recommend."</p>
-          <div class="rc-foot">
-            <div class="rc-av">HI</div>
-            <div><div class="rc-name">Haris Iqbal</div><div class="rc-src">Google Review</div></div>
-          </div>
-        </div></div><div class="rc rc-more" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:var(--gl);border-color:var(--gm)">
-          <div class="rc-stars" style="margin-bottom:12px"><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span></div>
-          <p style="font-family:var(--fb);font-size:14.5px;color:var(--gd);font-weight:600;margin-bottom:16px;line-height:1.5">Rated 5.0 by our Kitchener clients on Google</p>
-          <a href="https://share.google/Pa9ECgfcJhgVurFEJ" target="_blank" rel="noopener" class="btn-p" style="font-size:12px;padding:11px 20px">Read All Reviews</a>
-        </div>
-      <div class="gbadge"><span class="gg">G</span><span>5.0 / 5 on Google</span><span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span><span style="color:#f5a623">&#9733;</span></span></div>
-    </div>
-  </section>
-
-<section class="faq-sec" data-reveal>
+<section data-reveal>
   <div class="container">
-    <div class="sec-center">
-      <h2 class="sh2">Questions Kitchener Clients<br>Ask Us Most</h2>
+    <div class="sec-head center">
+      <h2 class="h-sec">Questions Kitchener clients ask us most</h2>
     </div>
     <div class="faq-narrow">
       <div class="faq-wrap">
@@ -921,16 +309,18 @@ body{animation:pageIn .45s ease-out}
   </div>
 </section>
 
-<section class="sec-cta" data-reveal>
-    <div class="container ta-c">
-      <h2 class="cta-h">Ready to Work With a Kitchener Accountant?</h2>
-      <p class="cta-p">Book a free consultation with our professional team.<br>No obligation, no jargon.</p>
-      <div class="cta-btns">
-        <a href="contact.html" class="btn-w">Book a Free Consultation</a>
-        <a href="tel:6475649666" class="btn-wg">Call (647) 564-9666</a>
-      </div>
+<section class="cta-band" data-reveal>
+  <div class="container">
+    <h2>Ready to stop worrying about your taxes?</h2>
+    <p>Book a free 30-minute consultation. No obligation, no jargon — just clear answers from a Kitchener CPA.</p>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn btn-white">Book a Free Consultation <span class="arr">&rarr;</span></a>
+      <a href="tel:6475649666" class="btn btn-ghost-w">Call (647) 564-9666</a>
     </div>
-  </section>
+    <p class="cta-note">We respond within 1 business day &middot; Open Mon–Sat, 10am–9pm</p>
+  </div>
+</section>
+
 </main>
 <footer class="site-footer"><div class="container">
   <div class="fg-grid">
@@ -944,20 +334,18 @@ body{animation:pageIn .45s ease-out}
     <div class="fc"><h4>Quick Links</h4><ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="tax-filing-kitchener.html">File Taxes</a></li>
-      <li><a href="personal-tax-accountant-kitchener.html">Personal Tax</a></li>
-      <li><a href="small-business-tax-accountant-kitchener.html">Small Business</a></li>
-      <li><a href="bookkeeping-services-kitchener.html">Bookkeeping</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms of Service</a></li>
     </ul></div>
     <div class="fc"><h4>Services</h4><ul>
       <li><a href="tax-filing-kitchener.html">Tax Filing</a></li>
-      <li><a href="cpa-kitchener.html">CPA Kitchener</a></li>
       <li><a href="personal-tax-accountant-kitchener.html">Personal Tax</a></li>
       <li><a href="small-business-tax-accountant-kitchener.html">Small Business Tax</a></li>
+      <li><a href="cpa-kitchener.html">CPA Services</a></li>
       <li><a href="bookkeeping-services-kitchener.html">Bookkeeping</a></li>
-      <li><a href="payroll-services-kitchener.html">Payroll Services</a></li>
+      <li><a href="payroll-services-kitchener.html">Payroll</a></li>
       <li><a href="hst-filing-kitchener.html">HST Filing</a></li>
       <li><a href="tax-consulting-kitchener.html">Tax Consulting</a></li>
     </ul></div>
@@ -973,90 +361,7 @@ body{animation:pageIn .45s ease-out}
     <span><a href="privacy.html">Privacy Policy</a>&nbsp;|&nbsp;<a href="terms.html">Terms</a></span>
   </div>
 </div></footer>
-<script>
-(function(){
-  var hb=document.querySelector('.hamburger'),nw=document.querySelector('.nav-wrap');
-  if(hb&&nw)hb.addEventListener('click',function(){nw.classList.toggle('open')});
-  document.querySelectorAll('.dt').forEach(function(el){
-    el.addEventListener('click',function(){el.closest('li').classList.toggle('open')});
-  });
-  document.querySelectorAll('.faq-it').forEach(function(it){
-    var q=it.querySelector('.faq-q');
-    if(q)q.addEventListener('click',function(){it.classList.toggle('open')});
-  });
-  var cp=window.location.pathname.split('/').pop()||'index.html';
-  document.querySelectorAll('.main-nav a').forEach(function(a){
-    if(a.getAttribute('href')===cp)a.classList.add('active');
-  });
-  var f=document.querySelector('.lf');
-  if(f)f.addEventListener('submit',function(e){
-    e.preventDefault();
-    var b=f.querySelector('.fsub');
-    b.textContent='Message sent. We will be in touch soon.';
-    b.style.background='#2C7A38';b.disabled=true;
-  });
-})();
-</script>
-<script>
-(function(){var els=document.querySelectorAll('[data-reveal]');if(!els.length)return;var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});els.forEach(function(el){io.observe(el)})})();
-</script>
-<script>
-(function(){
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var els=document.querySelectorAll('.sn, .ibs .n, .istat .n');if(!els.length)return;
-  function animate(el){
-    var raw=el.textContent.trim();
-    var m=raw.match(/^([0-9]+(?:\.[0-9]+)?)(.*)$/);if(!m)return;
-    var target=parseFloat(m[1]),suffix=m[2],dec=(m[1].split('.')[1]||'').length;
-    var t0=null,dur=900;
-    function step(ts){
-      if(!t0)t0=ts;
-      var p=Math.min((ts-t0)/dur,1);p=1-Math.pow(1-p,4);
-      el.textContent=(target*p).toFixed(dec)+suffix;
-      if(p<1)requestAnimationFrame(step);else el.textContent=raw;
-    }
-    requestAnimationFrame(step);
-  }
-  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){animate(e.target);io.unobserve(e.target)}})},{threshold:.6});
-  els.forEach(function(el){io.observe(el)});
-})();
-</script>
-<div class="mcta"><a href="tel:6475649666" class="mcta-call">Call (647) 564-9666</a><a href="contact.html" class="mcta-book">Book Free Consultation</a></div>
-<script>
-(function(){
-  var hdr=document.querySelector('.site-header');
-  if(hdr){
-    var s=document.createElement('div');
-    s.style.cssText='position:absolute;top:0;left:0;height:120px;width:1px;pointer-events:none';
-    document.body.prepend(s);
-    new IntersectionObserver(function(en){hdr.classList.toggle('compact',!en[0].isIntersecting)}).observe(s);
-  }
-  var bar=document.querySelector('.mcta');
-  var hero=document.querySelector('.hero, .page-hero, .art-hero');
-  if(bar&&hero){
-    new IntersectionObserver(function(en){bar.classList.toggle('show',!en[0].isIntersecting)}).observe(hero);
-  }else if(bar){bar.classList.add('show');}
-  var clips=document.querySelectorAll('[data-clip]');
-  if(clips.length){
-    var io2=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io2.unobserve(e.target)}})},{threshold:0});
-    clips.forEach(function(el){io2.observe(el)});
-  }
-  document.querySelectorAll('.faq-wrap').forEach(function(w){
-    w.addEventListener('click',function(ev){
-      var q=ev.target.closest('.faq-q');if(!q)return;
-      var cur=q.closest('.faq-it');
-      w.querySelectorAll('.faq-it.open').forEach(function(o){if(o!==cur)o.classList.remove('open')});
-    });
-  });
-  var slot=document.getElementById('open-now');
-  if(slot){try{
-    var p=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Toronto',hour:'numeric',hour12:false,weekday:'short'}).formatToParts(new Date());
-    var h=+p.find(function(x){return x.type==='hour'}).value;
-    var wd=p.find(function(x){return x.type==='weekday'}).value;
-    var open=wd!=='Sun'&&h>=10&&h<21;
-    slot.innerHTML=open?'<span class="ostat o-open">Open now until 9pm</span>':'<span class="ostat o-closed">Currently closed</span>';
-  }catch(e){}}
-})();
-</script>
+<div class="mcta"><a href="tel:6475649666" class="mcta-call">Call Us</a><a href="contact.html" class="mcta-book">Book Free Consultation</a></div>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
