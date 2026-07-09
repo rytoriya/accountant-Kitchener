@@ -257,7 +257,12 @@ section{padding:88px 0}
 .cta-note{margin-top:22px;font-size:13.5px;color:#7E9384}
 
 /* ============ PAGE HERO (interior) ============ */
-.page-hero{padding:72px 0 64px;background:linear-gradient(180deg,var(--stone),var(--paper));border-bottom:1px solid var(--border)}
+.page-hero{padding:72px 0 64px;background:linear-gradient(180deg,var(--stone),var(--paper));border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.ph-bg{position:absolute;inset:0;background-size:cover;background-position:center 30%;opacity:.16;pointer-events:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 45%,rgba(0,0,0,.9) 100%);
+  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 45%,rgba(0,0,0,.9) 100%)}
+.page-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(246,247,244,0) 55%,var(--paper) 100%);pointer-events:none}
+.page-hero .container{position:relative;z-index:1}
 .page-hero h1{font-size:clamp(32px,4.2vw,52px);font-weight:800;line-height:1.08;letter-spacing:-.03em;max-width:760px;margin-bottom:18px}
 .page-hero .lead{margin-bottom:30px}
 .crumb{font-family:var(--fd);font-size:13px;font-weight:600;color:var(--muted);margin-bottom:22px;display:block}
@@ -303,7 +308,10 @@ section{padding:88px 0}
 .bc-rl{font-family:var(--fd);font-size:13.5px;font-weight:700;color:var(--green-dark)}
 
 /* Article */
-.art-hero{padding:64px 0 52px;background:linear-gradient(180deg,var(--stone),var(--paper));border-bottom:1px solid var(--border)}
+.art-hero{padding:64px 0 52px;background:linear-gradient(180deg,var(--stone),var(--paper));border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.art-hero .ph-bg{opacity:.13}
+.art-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(246,247,244,0) 55%,var(--paper) 100%);pointer-events:none}
+.art-hero .container{position:relative;z-index:1}
 .art-hero h1{font-size:clamp(30px,3.8vw,46px);font-weight:800;line-height:1.12;letter-spacing:-.025em;max-width:820px}
 .art-meta{font-size:14px;color:var(--muted);margin-top:16px}
 .art-body{max-width:760px;margin:0 auto;padding:64px 28px}
