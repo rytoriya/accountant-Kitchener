@@ -1,6 +1,12 @@
 (function(){
   'use strict';
 
+  /* Active nav link */
+  var cp=window.location.pathname.split('/').pop()||'index.html';
+  document.querySelectorAll('.main-nav a').forEach(function(a){
+    if(a.getAttribute('href')===cp)a.classList.add('active');
+  });
+
   /* Mobile nav */
   var ham=document.querySelector('.hamburger'),nav=document.querySelector('.nav-wrap');
   if(ham&&nav){
